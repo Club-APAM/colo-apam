@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Colo du Club APAM — apprendreamasser.fr</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600;700;800&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --terra:    #C4633A;
+  --burgundy: #7B3F2B;
+  --cream:    #FAF3E8;
+  --gold:     #D4A853;
+  --sage:     #6B8F71;
+  --blush:    #F2DDD0;
+  --sand:     #E8D5BB;
+  --dark:     #2C1810;
+  --mid:      #8B6B55;
+  --light:    #F7EFE4;
+  --teal:     #3A9E94;
+  --lav:      #9B72AA;
+  --mint:     #52B788;
+  --sun:      #F0C040;
+  --coral:    #E8714A;
+  --sh-sm: 0 2px 12px rgba(124,63,43,0.08);
+  --sh-md: 0 6px 24px rgba(124,63,43,0.12);
+  --sh-lg: 0 16px 48px rgba(124,63,43,0.16);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--dark);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.5;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes scaleIn{from{opacity:0;transform:scale(0.88)}to{opacity:1;transform:scale(1)}}
+@keyframes bounceIn{0%{transform:scale(0.4);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-16px) rotate(4deg)}}
+@keyframes sunGlow{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}
+@keyframes toastIn{from{transform:translateX(110%);opacity:0}to{transform:none;opacity:1}}
+@keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+@keyframes badgePop{0%{transform:scale(0);opacity:0}60%{transform:scale(1.2)}100%{transform:scale(1);opacity:1}}
+
+.screen{display:none;}
+.screen.active{display:block;animation:fadeIn 0.5s ease;}
+
+/* LANDING */
+#screen-landing{min-height:100vh;position:relative;overflow:hidden;}
+.land-bg{position:absolute;inset:0;background:linear-gradient(155deg,#FDF6EC 0%,#F5E8D0 45%,#EDD8B8 80%,#E4C99E 100%);}
+.sun-deco{position:absolute;top:-80px;right:-80px;width:340px;height:340px;background:radial-gradient(circle,rgba(212,168,83,0.35) 0%,rgba(240,192,64,0.2) 40%,transparent 70%);border-radius:50%;animation:sunGlow 5s ease-in-out infinite;z-index:1;}
+.wave-bot{position:absolute;bottom:0;left:0;right:0;height:220px;z-index:1;}
+.fe{position:absolute;animation:float 7s ease-in-out infinite;z-index:2;user-select:none;font-size:2rem;}
+.fe1{top:12%;left:6%;animation-delay:0s;font-size:1.6rem}.fe2{top:20%;right:12%;animation-delay:1.2s;font-size:2.2rem}.fe3{top:48%;left:4%;animation-delay:2.5s;font-size:1.5rem}.fe4{top:62%;right:7%;animation-delay:0.8s;font-size:1.9rem}.fe5{top:35%;left:16%;animation-delay:3.2s;font-size:1.3rem}.fe6{top:75%;left:22%;animation-delay:1.8s;font-size:1.4rem}
+
+.land-content{position:relative;z-index:3;max-width:700px;margin:0 auto;padding:56px 24px 140px;text-align:center;}
+.apam-badge{display:inline-flex;align-items:center;gap:10px;background:white;border-radius:50px;padding:8px 20px 8px 12px;box-shadow:var(--sh-md);margin-bottom:28px;animation:bounceIn 0.8s ease 0.2s both;border:1.5px solid var(--sand);}
+.apam-badge .b-ico{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--terra),var(--burgundy));display:flex;align-items:center;justify-content:center;font-size:1rem;color:white;}
+.apam-badge .b-txt{font-family:'Cormorant Garamond',serif;font-size:0.85rem;font-weight:700;color:var(--burgundy);letter-spacing:0.03em;line-height:1.2;}
+.apam-badge .b-txt small{display:block;font-family:'Nunito',sans-serif;font-size:0.65rem;font-weight:400;color:var(--mid);letter-spacing:0.05em;}
+.season-tag{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,var(--terra),var(--coral));color:white;padding:6px 18px;border-radius:30px;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:20px;box-shadow:0 4px 16px rgba(196,99,58,0.35);animation:bounceIn 0.8s ease 0.4s both;}
+.land-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,6vw,4rem);font-weight:700;line-height:1.1;color:var(--burgundy);margin-bottom:6px;animation:fadeUp 0.8s ease 0.1s both;}
+.land-title em{font-style:italic;color:var(--terra);display:block;}
+.land-sub{font-family:'Caveat',cursive;font-size:1.55rem;color:var(--teal);margin-bottom:18px;font-weight:600;animation:fadeUp 0.8s ease 0.2s both;}
+.land-desc{font-size:1rem;color:var(--mid);line-height:1.75;margin-bottom:32px;max-width:540px;margin-left:auto;margin-right:auto;animation:fadeUp 0.8s ease 0.3s both;}
+.feats{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:36px;animation:fadeUp 0.8s ease 0.4s both;}
+.feat{background:white;border-radius:14px;padding:14px 8px;text-align:center;box-shadow:var(--sh-sm);transition:transform 0.25s;}
+.feat:hover{transform:translateY(-4px);}
+.feat .fi{font-size:1.7rem;margin-bottom:5px;}
+.feat .fl{font-size:0.65rem;font-weight:700;color:var(--burgundy);text-transform:uppercase;letter-spacing:0.05em;}
+.cta-main{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--terra) 0%,var(--burgundy) 100%);color:white;border:none;padding:18px 48px;border-radius:60px;font-size:1.05rem;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;box-shadow:0 8px 28px rgba(196,99,58,0.4);transition:all 0.3s;animation:fadeUp 0.8s ease 0.5s both;}
+.cta-main:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 14px 40px rgba(196,99,58,0.5);}
+.trust{margin-top:14px;font-size:0.8rem;color:var(--mid);animation:fadeUp 0.8s ease 0.6s both;}
+.trust a{color:var(--terra);font-weight:700;text-decoration:none;}
+.stats-row{display:flex;justify-content:center;gap:36px;margin-top:36px;animation:fadeUp 0.8s ease 0.7s both;}
+.stat-i .sn{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--terra);}
+.stat-i .sl{font-size:0.7rem;color:var(--mid);text-transform:uppercase;letter-spacing:0.06em;}
+
+/* MODALS */
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(44,24,16,0.5);backdrop-filter:blur(8px);z-index:200;align-items:center;justify-content:center;padding:20px;}
+.modal-ov.open{display:flex;animation:fadeIn 0.3s ease;}
+.modal-c{background:white;border-radius:28px;padding:40px 36px;max-width:460px;width:100%;position:relative;box-shadow:0 32px 80px rgba(44,24,16,0.22);animation:scaleIn 0.4s cubic-bezier(0.34,1.56,0.64,1);border-top:4px solid var(--terra);}
+.modal-x{position:absolute;top:16px;right:16px;background:#f0e8df;border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;color:var(--mid);display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.modal-x:hover{background:var(--sand);}
+.m-logo{text-align:center;margin-bottom:20px;}
+.m-logo-ico{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,var(--terra),var(--burgundy));display:inline-flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;margin-bottom:8px;}
+.m-title{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--burgundy);margin-bottom:4px;text-align:center;}
+.m-sub{font-family:'Caveat',cursive;font-size:1.1rem;color:var(--teal);margin-bottom:22px;text-align:center;}
+.m-tabs{display:flex;gap:0;margin-bottom:22px;background:#f5ede4;border-radius:12px;padding:4px;}
+.m-tab{flex:1;padding:9px;border:none;background:none;border-radius:9px;font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;color:var(--mid);transition:all 0.25s;}
+.m-tab.active{background:white;color:var(--burgundy);box-shadow:var(--sh-sm);}
+.fg{margin-bottom:14px;}
+.fg label{display:block;font-size:0.75rem;font-weight:700;color:var(--burgundy);margin-bottom:5px;text-transform:uppercase;letter-spacing:0.06em;}
+.fg input,.fg select{width:100%;padding:13px 15px;border:2px solid var(--sand);border-radius:12px;font-size:0.92rem;font-family:'Nunito',sans-serif;background:white;color:var(--dark);transition:border-color 0.2s,box-shadow 0.2s;outline:none;}
+.fg input:focus,.fg select:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,99,58,0.12);}
+.fg input::placeholder{color:#C5B0A0;}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.ferr{color:#C0392B;font-size:0.78rem;margin-top:5px;display:none;align-items:center;gap:5px;}
+.ferr.show{display:flex;}
+.sub-btn{width:100%;padding:15px;background:linear-gradient(135deg,var(--terra) 0%,var(--burgundy) 100%);color:white;border:none;border-radius:14px;font-size:0.98rem;font-weight:700;cursor:pointer;margin-top:6px;font-family:'Nunito',sans-serif;transition:all 0.25s;box-shadow:0 6px 20px rgba(196,99,58,0.35);}
+.sub-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(196,99,58,0.45);}
+.legal-n{font-size:0.7rem;color:var(--mid);text-align:center;margin-top:12px;line-height:1.5;}
+.forgot{text-align:center;margin-top:12px;font-size:0.78rem;color:var(--mid);}
+.forgot a{color:var(--terra);text-decoration:none;font-weight:700;}
+
+/* APP HEADER */
+.app-hdr{background:linear-gradient(135deg,var(--burgundy) 0%,#4A2018 100%);position:sticky;top:0;z-index:100;box-shadow:0 4px 24px rgba(44,24,16,0.25);}
+.hdr-top{max-width:1140px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.h-brand{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.h-brand-logo{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--terra),var(--coral));display:flex;align-items:center;justify-content:center;font-size:1.4rem;}
+.h-brand-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;line-height:1.1;color:white;white-space:nowrap;}
+.h-brand-sub{font-size:0.62rem;font-weight:400;color:rgba(255,255,255,0.5);letter-spacing:0.07em;text-transform:uppercase;}
+.h-prog{flex:1;max-width:320px;}
+.h-prog-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;}
+.h-prog-lbl{font-size:0.7rem;color:rgba(255,255,255,0.6);}
+.h-prog-pct{font-size:0.85rem;font-weight:800;color:var(--sun);}
+.h-prog-bar{height:7px;background:rgba(255,255,255,0.12);border-radius:10px;overflow:hidden;}
+.h-prog-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--teal),var(--sun));transition:width 0.9s cubic-bezier(0.34,1.56,0.64,1);width:0%;}
+.h-right{display:flex;align-items:center;gap:10px;}
+.xp-chip{background:rgba(240,192,64,0.18);border:1px solid rgba(240,192,64,0.35);color:var(--sun);padding:5px 12px;border-radius:20px;font-size:0.72rem;font-weight:800;display:flex;align-items:center;gap:5px;}
+.user-btn{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:none;border-radius:40px;padding:6px 14px 6px 6px;cursor:pointer;transition:background 0.2s;color:white;font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:600;}
+.user-btn:hover{background:rgba(255,255,255,0.18);}
+.avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--terra),var(--coral));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:white;flex-shrink:0;}
+.nav-bar{background:rgba(0,0,0,0.2);border-top:1px solid rgba(255,255,255,0.07);overflow-x:auto;scrollbar-width:none;}
+.nav-bar::-webkit-scrollbar{display:none;}
+.nav-inner{display:flex;max-width:1140px;margin:0 auto;padding:0 16px;}
+.nav-tab{flex-shrink:0;padding:10px 16px;border:none;background:none;color:rgba(255,255,255,0.45);font-size:0.78rem;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;border-bottom:3px solid transparent;transition:all 0.2s;display:flex;align-items:center;gap:5px;white-space:nowrap;}
+.nav-tab:hover{color:rgba(255,255,255,0.78);}
+.nav-tab.active{color:white;border-bottom-color:var(--terra);}
+
+/* CONTENT */
+.content{max-width:1140px;margin:0 auto;padding:32px 24px 100px;}
+.section{display:none;}
+.section.active{display:block;animation:fadeUp 0.4s ease;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--burgundy);display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.sec-desc{font-size:0.88rem;color:var(--mid);line-height:1.65;margin-bottom:24px;}
+.sub-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--burgundy);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+
+/* DASHBOARD */
+.dash-hi{margin-bottom:28px;}
+.dash-hi h2{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--burgundy);margin-bottom:4px;}
+.dash-hi p{font-size:0.88rem;color:var(--mid);}
+
+/* THERMOMETER */
+.thermo{background:white;border-radius:24px;padding:24px 28px;box-shadow:var(--sh-sm);margin-bottom:26px;display:flex;align-items:center;gap:24px;}
+.th-vis{flex-shrink:0;text-align:center;width:80px;}
+.th-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--terra);line-height:1;}
+.th-lbl{font-size:0.68rem;color:var(--mid);text-transform:uppercase;letter-spacing:0.06em;}
+.th-right{flex:1;}
+.th-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--burgundy);margin-bottom:6px;}
+.th-desc{font-size:0.83rem;color:var(--mid);line-height:1.6;margin-bottom:10px;}
+.th-bar{height:12px;background:var(--sand);border-radius:10px;overflow:hidden;}
+.th-fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--terra),var(--sun));transition:width 0.8s ease;}
+
+/* WEEK BANNER */
+.week-ban{background:linear-gradient(135deg,var(--burgundy) 0%,#3A1A0C 100%);border-radius:24px;padding:26px 30px;color:white;margin-bottom:26px;display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;overflow:hidden;}
+.week-ban::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(212,168,83,0.15) 0%,transparent 70%);border-radius:50%;}
+.wb-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(212,168,83,0.2);border:1px solid rgba(212,168,83,0.35);color:var(--sun);padding:4px 12px;border-radius:20px;font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px;}
+.wb-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;margin-bottom:6px;}
+.wb-desc{font-size:0.84rem;color:rgba(255,255,255,0.7);line-height:1.5;}
+.wb-btn{flex-shrink:0;background:var(--sun);color:var(--burgundy);border:none;padding:12px 22px;border-radius:40px;font-size:0.84rem;font-weight:800;cursor:pointer;white-space:nowrap;font-family:'Nunito',sans-serif;transition:all 0.2s;}
+.wb-btn:hover{transform:scale(1.05);}
+
+/* FORMATIONS CTA */
+.fcta{background:linear-gradient(135deg,#FFF3E8,#FDEBD6);border:2px solid var(--sand);border-radius:24px;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:26px;}
+.fcta-tag{font-size:0.68rem;font-weight:800;color:var(--terra);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
+.fcta-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--burgundy);margin-bottom:4px;}
+.fcta-desc{font-size:0.8rem;color:var(--mid);}
+.fcta-btn{flex-shrink:0;background:linear-gradient(135deg,var(--terra),var(--burgundy));color:white;border:none;padding:11px 22px;border-radius:40px;font-size:0.82rem;font-weight:700;cursor:pointer;white-space:nowrap;font-family:'Nunito',sans-serif;transition:all 0.2s;text-decoration:none;display:inline-block;}
+.fcta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(196,99,58,0.4);}
+
+/* CAT CARDS */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px;margin-bottom:32px;}
+.cat-card{background:white;border-radius:24px;padding:22px;cursor:pointer;border:2px solid transparent;box-shadow:var(--sh-sm);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);position:relative;overflow:hidden;}
+.cat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:24px 24px 0 0;}
+.cat-card:hover{transform:translateY(-6px) scale(1.01);box-shadow:var(--sh-lg);}
+.cc-terra::before{background:linear-gradient(90deg,var(--terra),var(--sun));}
+.cc-teal::before{background:linear-gradient(90deg,var(--teal),#6BC5BE);}
+.cc-lav::before{background:linear-gradient(90deg,var(--lav),#C9A6D4);}
+.cc-gold::before{background:linear-gradient(90deg,var(--gold),#E8C878);}
+.cc-sage::before{background:linear-gradient(90deg,var(--sage),#8BC490);}
+.cc-ico{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:12px;}
+.cc-terra .cc-ico{background:rgba(196,99,58,0.1);}
+.cc-teal .cc-ico{background:rgba(58,158,148,0.1);}
+.cc-lav .cc-ico{background:rgba(155,114,170,0.1);}
+.cc-gold .cc-ico{background:rgba(212,168,83,0.1);}
+.cc-sage .cc-ico{background:rgba(107,143,113,0.1);}
+.cc-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--burgundy);margin-bottom:6px;}
+.cc-desc{font-size:0.8rem;color:var(--mid);line-height:1.5;margin-bottom:14px;}
+.cc-bar{height:5px;background:var(--sand);border-radius:10px;overflow:hidden;margin-bottom:8px;}
+.cc-fill{height:100%;border-radius:10px;transition:width 0.7s ease;}
+.cc-terra .cc-fill{background:linear-gradient(90deg,var(--terra),var(--sun));}
+.cc-teal .cc-fill{background:linear-gradient(90deg,var(--teal),#6BC5BE);}
+.cc-lav .cc-fill{background:linear-gradient(90deg,var(--lav),#C9A6D4);}
+.cc-gold .cc-fill{background:linear-gradient(90deg,var(--gold),#E8C878);}
+.cc-sage .cc-fill{background:linear-gradient(90deg,var(--sage),#8BC490);}
+.cc-meta{display:flex;justify-content:space-between;align-items:center;font-size:0.73rem;color:var(--mid);}
+
+/* STATS */
+.stats-dash{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;margin-bottom:32px;}
+.stat-card{background:white;border-radius:18px;padding:18px 20px;box-shadow:var(--sh-sm);display:flex;align-items:center;gap:14px;}
+.stat-ico{font-size:2rem;flex-shrink:0;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--terra);line-height:1;}
+.stat-lbl{font-size:0.7rem;color:var(--mid);text-transform:uppercase;letter-spacing:0.05em;margin-top:2px;}
+
+/* BADGES */
+.badges-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-bottom:28px;}
+.badge-item{background:white;border-radius:18px;padding:16px 12px;text-align:center;box-shadow:var(--sh-sm);border:2px solid var(--sand);transition:all 0.3s;}
+.badge-item.unlocked{border-color:var(--gold);background:linear-gradient(135deg,#FFF8EC,white);animation:badgePop 0.5s ease;}
+.badge-item.locked{opacity:0.4;filter:grayscale(0.8);}
+.b-ico{font-size:2rem;margin-bottom:8px;display:block;}
+.b-name{font-size:0.72rem;font-weight:700;color:var(--burgundy);margin-bottom:3px;line-height:1.3;}
+.b-cond{font-size:0.65rem;color:var(--mid);line-height:1.3;}
+.badge-item.unlocked .b-name{color:var(--terra);}
+.badge-item.unlocked::after{content:'✓';position:absolute;top:8px;right:8px;width:18px;height:18px;background:var(--gold);color:white;border-radius:50%;font-size:0.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.badge-item{position:relative;}
+
+/* QUIZ */
+.quiz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:16px;}
+.quiz-card{background:white;border-radius:22px;padding:20px;cursor:pointer;box-shadow:var(--sh-sm);transition:all 0.3s;position:relative;overflow:hidden;}
+.quiz-card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg);}
+.quiz-card.done::after{content:'✓';position:absolute;top:12px;right:12px;width:28px;height:28px;background:var(--sage);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;}
+.q-tag{font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:9px;}
+.qc-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--burgundy);margin-bottom:7px;}
+.qc-desc{font-size:0.79rem;color:var(--mid);line-height:1.5;margin-bottom:14px;}
+.qc-meta{display:flex;gap:12px;font-size:0.72rem;color:#A09080;}
+
+/* ACTIVE QUIZ */
+.quiz-panel{display:none;}
+.quiz-panel.show{display:block;animation:fadeUp 0.4s ease;}
+.quiz-list.hide{display:none;}
+.qp-hdr{background:white;border-radius:22px;padding:22px 26px;margin-bottom:18px;box-shadow:var(--sh-sm);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.qp-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--burgundy);}
+.q-pills{display:flex;gap:5px;flex-wrap:wrap;}
+.q-pill{width:24px;height:7px;border-radius:4px;background:var(--sand);transition:background 0.3s;}
+.q-pill.done{background:var(--sage);}
+.q-pill.curr{background:var(--terra);}
+.q-card{background:white;border-radius:22px;padding:30px;box-shadow:var(--sh-sm);margin-bottom:16px;}
+.q-num{font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--terra);margin-bottom:10px;}
+.q-text{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--burgundy);line-height:1.45;margin-bottom:22px;}
+.answers{display:grid;gap:9px;}
+.ans-btn{width:100%;text-align:left;padding:14px 18px;border:2px solid var(--sand);border-radius:12px;background:white;font-family:'Nunito',sans-serif;font-size:0.9rem;color:var(--dark);cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:11px;}
+.ans-btn:hover:not(:disabled){border-color:var(--terra);background:rgba(196,99,58,0.04);transform:translateX(4px);}
+.ans-btn.correct{border-color:var(--sage);background:rgba(107,143,113,0.1);color:#2D6B42;}
+.ans-btn.wrong{border-color:var(--coral);background:rgba(232,113,74,0.08);color:#B03A20;}
+.ans-let{width:28px;height:28px;border-radius:8px;background:var(--blush);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:800;flex-shrink:0;transition:all 0.2s;}
+.correct .ans-let{background:var(--sage);color:white;}
+.wrong .ans-let{background:var(--coral);color:white;}
+.q-expl{background:var(--light);border-radius:12px;padding:14px 18px;margin-top:12px;font-size:0.85rem;line-height:1.65;border-left:3px solid var(--teal);display:none;color:var(--dark);}
+.q-expl.show{display:block;animation:fadeIn 0.3s ease;}
+.next-q-btn{background:var(--terra);color:white;border:none;padding:13px 30px;border-radius:40px;font-size:0.9rem;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;display:none;align-items:center;gap:8px;transition:all 0.2s;box-shadow:0 4px 14px rgba(196,99,58,0.35);}
+.next-q-btn.show{display:inline-flex;animation:fadeIn 0.3s ease;}
+.next-q-btn:hover{transform:translateX(4px);}
+.q-res-card{background:white;border-radius:28px;padding:40px;text-align:center;box-shadow:var(--sh-md);display:none;}
+.q-res-card.show{display:block;animation:scaleIn 0.5s ease;}
+.r-emoji{font-size:4rem;margin-bottom:14px;}
+.r-title{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700;color:var(--burgundy);margin-bottom:8px;}
+.r-score{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;color:var(--terra);line-height:1;margin:14px 0;}
+.r-msg{color:var(--mid);font-size:0.92rem;line-height:1.6;max-width:360px;margin:0 auto 22px;}
+.r-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+/* CHECKLIST */
+.months-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+.month-card{background:white;border-radius:22px;padding:24px;box-shadow:var(--sh-sm);}
+.mo-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+.mo-ico{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;}
+.mo-head h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--burgundy);}
+.mo-head p{font-size:0.75rem;color:var(--mid);}
+.mo-prog-txt{font-size:0.75rem;color:var(--mid);margin-bottom:7px;}
+.check-item{display:flex;align-items:flex-start;gap:11px;padding:11px 0;border-bottom:1px solid var(--light);cursor:pointer;transition:padding-left 0.2s;}
+.check-item:last-child{border-bottom:none;}
+.check-item:hover{padding-left:4px;}
+.chk-box{width:21px;height:21px;border:2px solid var(--sand);border-radius:7px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all 0.25s;}
+.check-item.checked .chk-box{background:var(--sage);border-color:var(--sage);}
+.check-item.checked .chk-box::after{content:'✓';color:white;font-size:0.72rem;font-weight:800;}
+.chk-txt{font-size:0.86rem;font-weight:500;color:var(--dark);line-height:1.4;transition:all 0.2s;}
+.check-item.checked .chk-txt{text-decoration:line-through;color:var(--mid);}
+.chk-tag{font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:8px;margin-top:3px;display:inline-block;}
+.tag-business{background:rgba(58,158,148,0.12);color:var(--teal);}
+.tag-soin{background:rgba(196,99,58,0.1);color:var(--terra);}
+.tag-marketing{background:rgba(155,114,170,0.1);color:var(--lav);}
+.tag-bien-etre{background:rgba(107,143,113,0.12);color:var(--sage);}
+.tag-admin{background:rgba(123,63,43,0.1);color:var(--burgundy);}
+
+/* PAUSE */
+.pause-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:16px;}
+.pause-card{background:white;border-radius:22px;overflow:hidden;box-shadow:var(--sh-sm);cursor:pointer;transition:all 0.3s;}
+.pause-card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg);}
+.pause-card.done{border:2px solid var(--sage);}
+.pa-top{padding:20px 20px 16px;position:relative;}
+.pa-dur{position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.9);padding:3px 10px;border-radius:20px;font-size:0.7rem;font-weight:700;color:var(--burgundy);}
+.pa-ico{font-size:2rem;margin-bottom:8px;}
+.pa-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--burgundy);margin-bottom:4px;}
+.pa-desc{font-size:0.78rem;color:var(--mid);line-height:1.5;}
+.pa-foot{padding:11px 20px;border-top:1px solid var(--light);display:flex;align-items:center;justify-content:space-between;}
+.pa-lvl{font-size:0.7rem;font-weight:700;padding:3px 10px;border-radius:12px;}
+.lvl-d{background:rgba(107,143,113,0.12);color:var(--sage);}
+.lvl-m{background:rgba(240,192,64,0.15);color:#9A7200;}
+.pa-play{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:none;cursor:pointer;transition:all 0.2s;}
+.pa-play:hover{transform:scale(1.12);}
+.pa-step{display:flex;gap:12px;padding:12px;background:var(--light);border-radius:12px;font-size:0.83rem;color:var(--dark);line-height:1.5;}
+.pa-step-ico{font-size:1.4rem;flex-shrink:0;}
+.pa-step-num{font-size:0.75rem;font-weight:800;color:var(--terra);margin-bottom:2px;}
+
+/* JEUX */
+.vf-wrap{max-width:560px;margin:0 auto 32px;}
+.vf-card{background:white;border-radius:28px;padding:34px;text-align:center;box-shadow:var(--sh-md);margin-bottom:16px;}
+.vf-num{font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--lav);}
+.vf-stmt{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--burgundy);line-height:1.45;margin:18px 0 24px;}
+.vf-btns{display:flex;gap:12px;justify-content:center;}
+.vf-btn{flex:1;max-width:160px;padding:15px;border-radius:14px;border:2.5px solid;font-size:0.95rem;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;transition:all 0.2s;}
+.vf-v{border-color:var(--sage);color:var(--sage);background:rgba(107,143,113,0.06);}
+.vf-f{border-color:var(--coral);color:var(--coral);background:rgba(232,113,74,0.06);}
+.vf-v:hover,.vf-v.sel{background:var(--sage);color:white;transform:scale(1.04);}
+.vf-f:hover,.vf-f.sel{background:var(--coral);color:white;transform:scale(1.04);}
+.vf-res{border-radius:12px;padding:14px 18px;margin-top:14px;display:none;font-size:0.87rem;line-height:1.6;text-align:left;}
+.vf-res.show{display:block;animation:fadeIn 0.3s ease;}
+.vf-ok{background:rgba(107,143,113,0.1);border:1.5px solid var(--sage);color:#2D6B42;}
+.vf-ko{background:rgba(232,113,74,0.08);border:1.5px solid var(--coral);color:#B03A20;}
+.game-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px;}
+.game-card{background:white;border-radius:22px;padding:22px;text-align:center;box-shadow:var(--sh-sm);transition:all 0.3s;border-top:3px solid;}
+.game-card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg);}
+.g-ico{font-size:2.8rem;margin-bottom:10px;}
+.g-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--burgundy);margin-bottom:7px;}
+.g-desc{font-size:0.8rem;color:var(--mid);line-height:1.5;margin-bottom:14px;}
+.g-done{font-size:0.72rem;font-weight:700;color:var(--sage);margin-top:4px;}
+.defi-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:30px;font-size:0.78rem;font-weight:700;border:2px solid;background:none;cursor:pointer;font-family:'Nunito',sans-serif;transition:all 0.2s;}
+
+/* BOOST */
+.boost-intro{background:linear-gradient(135deg,var(--teal) 0%,#1E7068 100%);border-radius:22px;padding:28px 30px;color:white;margin-bottom:24px;}
+.boost-intro h3{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:700;margin-bottom:6px;}
+.boost-intro p{font-size:0.87rem;color:rgba(255,255,255,0.82);line-height:1.65;}
+.boost-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px;}
+.boost-card{background:white;border-radius:22px;overflow:hidden;box-shadow:var(--sh-sm);transition:all 0.3s;}
+.boost-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);}
+.bo-head{padding:18px 20px 14px;border-bottom:1px solid var(--light);display:flex;align-items:center;gap:12px;}
+.bo-ico{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.bo-htitle{font-family:'Cormorant Garamond',serif;font-size:0.98rem;font-weight:700;color:var(--burgundy);}
+.bo-htag{font-size:0.68rem;color:var(--mid);margin-top:1px;}
+.bo-body{padding:18px 20px;}
+.bo-steps{list-style:none;}
+.bo-step{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px dashed var(--light);font-size:0.82rem;color:var(--mid);line-height:1.5;}
+.bo-step:last-child{border-bottom:none;}
+.bo-n{width:22px;height:22px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;flex-shrink:0;color:white;}
+.bo-cta{display:block;width:calc(100% - 40px);margin:0 20px 18px;padding:11px;border-radius:12px;border:none;font-size:0.83rem;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:all 0.2s;text-align:center;}
+
+/* RENTRÉE */
+.rentree-hero{background:linear-gradient(135deg,#2D1B69 0%,#512DA8 55%,var(--lav) 100%);border-radius:22px;padding:30px;color:white;margin-bottom:26px;position:relative;overflow:hidden;}
+.rentree-hero::after{content:'🍂';position:absolute;right:24px;top:50%;transform:translateY(-50%);font-size:5rem;opacity:0.25;}
+.rentree-hero h2{font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:700;margin-bottom:8px;}
+.rentree-hero p{font-size:0.87rem;color:rgba(255,255,255,0.8);max-width:480px;line-height:1.65;}
+.rentree-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px;margin-bottom:24px;}
+.re-card{background:white;border-radius:22px;padding:22px;box-shadow:var(--sh-sm);transition:all 0.3s;border-left:4px solid;}
+.re-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);}
+.re-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;opacity:.12;line-height:1;margin-bottom:3px;}
+.re-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--burgundy);margin-bottom:9px;}
+.re-body{font-size:0.82rem;color:var(--mid);line-height:1.65;}
+.re-body ul{list-style:none;}
+.re-body li{display:flex;align-items:flex-start;gap:7px;padding:3px 0;}
+.re-body li::before{content:'→';font-size:0.72rem;margin-top:3px;flex-shrink:0;color:var(--terra);}
+.worksheet{background:linear-gradient(135deg,#FFF8EC,#FFFDF5);border:2px dashed var(--sand);border-radius:22px;padding:22px;}
+.ws-title{font-family:'Caveat',cursive;font-size:1.25rem;color:var(--terra);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.ws-inputs{display:grid;gap:10px;}
+.ws-inp{width:100%;padding:12px 14px;border:1.5px solid var(--sand);border-radius:10px;font-family:'Caveat',cursive;font-size:1rem;color:var(--dark);background:white;outline:none;transition:border-color 0.2s;}
+.ws-inp:focus{border-color:var(--terra);}
+.ws-inp::placeholder{color:#C5B0A0;}
+
+/* BTNS */
+.btn-p{background:linear-gradient(135deg,var(--terra),var(--burgundy));color:white;border:none;padding:11px 24px;border-radius:40px;font-size:0.85rem;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:all 0.2s;box-shadow:0 4px 14px rgba(196,99,58,0.35);}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(196,99,58,0.45);}
+.btn-s{background:var(--blush);color:var(--burgundy);border:none;padding:11px 24px;border-radius:40px;font-size:0.85rem;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;transition:all 0.2s;}
+.btn-s:hover{background:var(--sand);}
+
+/* TOAST + CONFETTI */
+.toast-wrap{position:fixed;bottom:24px;right:24px;z-index:500;display:flex;flex-direction:column;gap:10px;pointer-events:none;}
+.toast{background:var(--burgundy);color:white;padding:13px 18px;border-radius:14px;font-size:0.85rem;font-weight:600;display:flex;align-items:center;gap:9px;box-shadow:var(--sh-lg);animation:toastIn 0.4s cubic-bezier(0.34,1.56,0.64,1);pointer-events:all;max-width:310px;}
+.toast.ok{background:var(--sage);}
+.toast.xp{background:var(--terra);}
+.toast.win{background:linear-gradient(135deg,var(--terra),var(--burgundy));}
+.confetti-p{position:fixed;width:9px;height:9px;border-radius:2px;animation:confettiFall 2.5s ease-in forwards;z-index:600;pointer-events:none;}
+
+/* FOOTER */
+.app-footer{background:var(--dark);color:rgba(255,255,255,0.45);text-align:center;padding:16px 24px;font-size:0.68rem;line-height:1.7;letter-spacing:0.02em;}
+.app-footer a{color:rgba(255,255,255,0.55);text-decoration:none;}
+.app-footer a:hover{color:rgba(255,255,255,0.8);}
+.app-footer strong{color:rgba(255,255,255,0.65);}
+
+/* RESPONSIVE */
+@media(max-width:640px){
+  .feats{grid-template-columns:repeat(3,1fr);}
+  .h-prog{display:none;}
+  .cat-grid,.quiz-grid,.pause-grid,.game-grid,.boost-grid,.rentree-grid{grid-template-columns:1fr;}
+  .week-ban,.fcta,.thermo{flex-direction:column;}
+  .months-grid{grid-template-columns:1fr;}
+  .modal-c{padding:28px 18px;}
+  .stats-dash{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<!-- LANDING -->
+<div id="screen-landing" class="screen active">
+  <div class="land-bg"></div>
+  <div class="sun-deco"></div>
+  <svg class="wave-bot" viewBox="0 0 1440 220" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,120 C240,200 480,60 720,110 C960,160 1200,55 1440,95 L1440,220 L0,220 Z" fill="rgba(58,158,148,0.12)"/>
+    <path d="M0,155 C360,90 720,200 1080,135 C1260,105 1390,158 1440,175 L1440,220 L0,220 Z" fill="rgba(58,158,148,0.2)"/>
+    <path d="M0,185 C200,160 450,205 680,188 C900,172 1150,200 1440,190 L1440,220 L0,220 Z" fill="rgba(58,158,148,0.32)"/>
+  </svg>
+  <span class="fe fe1">🌿</span><span class="fe fe2">☀️</span><span class="fe fe3">🌊</span>
+  <span class="fe fe4">🦋</span><span class="fe fe5">✨</span><span class="fe fe6">🌸</span>
+  <div class="land-content">
+    <div class="apam-badge">
+      <div class="b-ico">🤲</div>
+      <div class="b-txt">APAM — apprendreamasser.fr<small>Par Fanny Perot · Expert massage 15 ans</small></div>
+    </div>
+    <div class="season-tag">🌴 Été 2025 · Édition Limitée</div>
+    <h1 class="land-title">La Colo du Club APAM<em>Ton cahier de vacances praticien</em></h1>
+    <p class="land-sub">8 semaines pour te ressourcer &amp; booster ta rentrée 🌊</p>
+    <p class="land-desc">Quiz, défis, auto-massages, stratégie business, préparation rentrée… Un compagnon estival <strong>conçu pour les praticiens en massage</strong> qui veulent revenir en septembre rechargés, inspirés et prêts à cartonner.</p>
+    <div class="feats">
+      <div class="feat"><div class="fi">🧠</div><div class="fl">Quiz Pro</div></div>
+      <div class="feat"><div class="fi">🎯</div><div class="fl">Défis</div></div>
+      <div class="feat"><div class="fi">🚀</div><div class="fl">Business</div></div>
+      <div class="feat"><div class="fi">🙌</div><div class="fl">Auto-massage</div></div>
+      <div class="feat"><div class="fi">🏅</div><div class="fl">Badges</div></div>
+      <div class="feat"><div class="fi">🍂</div><div class="fl">Rentrée</div></div>
+    </div>
+    <button class="cta-main" onclick="openAuth('register')">🌟 Accéder gratuitement à ma colo</button>
+    <p class="trust">✉️ Inscription gratuite &nbsp;·&nbsp; Aucune CB &nbsp;·&nbsp; <a href="#" onclick="openAuth('login');return false;">Déjà inscrit ? Connexion →</a></p>
+    <div class="stats-row">
+      <div class="stat-i"><div class="sn">40+</div><div class="sl">Activités</div></div>
+      <div class="stat-i"><div class="sn">8</div><div class="sl">Semaines</div></div>
+      <div class="stat-i"><div class="sn">10</div><div class="sl">Badges</div></div>
+    </div>
+  </div>
+  <footer class="app-footer">
+    <strong>La Colo du Club APAM</strong> — <a href="https://www.apprendreamasser.fr" target="_blank">apprendreamasser.fr</a> &nbsp;·&nbsp;
+    Développé par <strong>Fanny Perot</strong>, experte massage &amp; formatrice depuis 15 ans &nbsp;·&nbsp;
+    © 2025 Apprendre à Masser — Tous droits de reproduction, diffusion et exploitation réservés. Toute reproduction partielle ou totale est interdite sans autorisation écrite préalable. &nbsp;·&nbsp;
+    <a href="https://www.apprendreamasser.fr/politique-de-confidentialite/" target="_blank">Politique de confidentialité</a> &nbsp;·&nbsp;
+    <a href="https://www.apprendreamasser.fr/mentions-legales/" target="_blank">Mentions légales</a>
+  </footer>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-ov" id="modalAuth">
+  <div class="modal-c">
+    <button class="modal-x" onclick="closeAuth()">✕</button>
+    <div class="m-logo"><div class="m-logo-ico">🤲</div></div>
+    <div class="m-title" id="authTitle">Rejoindre la Colo 🌴</div>
+    <div class="m-sub" id="authSub">Crée ton espace gratuit !</div>
+    <div class="m-tabs">
+      <button class="m-tab active" id="tabReg" onclick="switchTab('register')">Inscription</button>
+      <button class="m-tab" id="tabLog" onclick="switchTab('login')">Connexion</button>
+    </div>
+    <!-- REGISTER -->
+    <div id="fReg">
+      <div class="f-row">
+        <div class="fg"><label>Prénom *</label><input type="text" id="rPrenom" placeholder="Sophie" autocomplete="given-name"/></div>
+        <div class="fg"><label>Nom *</label><input type="text" id="rNom" placeholder="Martin" autocomplete="family-name"/></div>
+      </div>
+      <div class="fg"><label>Email professionnel *</label><input type="email" id="rEmail" placeholder="sophie@monespace.fr" autocomplete="email"/></div>
+      <div class="fg">
+        <label>Mot de passe * (min. 8 caractères)</label>
+        <input type="password" id="rPwd" placeholder="••••••••" autocomplete="new-password"/>
+        <div class="ferr" id="errPwd">⚠️ Minimum 8 caractères requis</div>
+      </div>
+      <div class="fg">
+        <label>Ta spécialité principale</label>
+        <select id="rSpe">
+          <option value="">Choisir…</option>
+          <option>Massage suédois / relaxant</option><option>Massage thaïlandais</option>
+          <option>Drainage lymphatique</option><option>Réflexologie</option>
+          <option>Shiatsu / Acupression</option><option>Massage ayurvédique</option>
+          <option>Soins énergétiques</option><option>Massage sportif</option>
+          <option>Massage du visage / Facialiste</option><option>Autre / Mix</option>
+        </select>
+      </div>
+      <div class="ferr" id="errReg" style="margin-bottom:8px"></div>
+      <button class="sub-btn" onclick="doRegister()">🌟 Créer mon espace</button>
+      <p class="legal-n">En t'inscrivant, tu acceptes de recevoir les emails du Club APAM.<br>Désabonnement possible à tout moment.</p>
+    </div>
+    <!-- LOGIN -->
+    <div id="fLog" style="display:none">
+      <div class="fg"><label>Email</label><input type="email" id="lEmail" placeholder="sophie@monespace.fr" autocomplete="email"/></div>
+      <div class="fg">
+        <label>Mot de passe</label>
+        <input type="password" id="lPwd" placeholder="••••••••" autocomplete="current-password"/>
+        <div class="ferr" id="errLog">⚠️ Email ou mot de passe incorrect</div>
+      </div>
+      <button class="sub-btn" onclick="doLogin()">🔐 Me connecter</button>
+      <p class="forgot">Pas encore de compte ? <a href="#" onclick="switchTab('register');return false;">Inscription gratuite →</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="screen-app" class="screen">
+  <header class="app-hdr">
+    <div class="hdr-top">
+      <div class="h-brand">
+        <div class="h-brand-logo">🤲</div>
+        <div>
+          <div class="h-brand-name">La Colo du Club APAM</div>
+          <div class="h-brand-sub">apprendreamasser.fr · Été 2025</div>
+        </div>
+      </div>
+      <div class="h-prog">
+        <div class="h-prog-top">
+          <span class="h-prog-lbl" id="progLbl">0 / 40 activités</span>
+          <span class="h-prog-pct" id="progPct">0%</span>
+        </div>
+        <div class="h-prog-bar"><div class="h-prog-fill" id="progFill"></div></div>
+      </div>
+      <div class="h-right">
+        <div class="xp-chip">⭐ <span id="xpBadge">0</span> XP</div>
+        <button class="user-btn" onclick="showUserMenu()">
+          <div class="avatar" id="userAvatar">?</div>
+          <span id="userName">…</span>
+        </button>
+      </div>
+    </div>
+    <nav class="nav-bar">
+      <div class="nav-inner">
+        <button class="nav-tab active" data-sec="dashboard" onclick="goSec('dashboard')">🏠 Tableau de bord</button>
+        <button class="nav-tab" data-sec="quiz" onclick="goSec('quiz')">🧠 Quiz Pro</button>
+        <button class="nav-tab" data-sec="pause" onclick="goSec('pause')">🙌 Pause Praticien</button>
+        <button class="nav-tab" data-sec="jeux" onclick="goSec('jeux')">🎮 Jeux de l'Été</button>
+        <button class="nav-tab" data-sec="checklist" onclick="goSec('checklist')">✅ Checklist Juil/Août</button>
+        <button class="nav-tab" data-sec="boost" onclick="goSec('boost')">🚀 Boost Business</button>
+        <button class="nav-tab" data-sec="rentree" onclick="goSec('rentree')">🍂 Prépa Rentrée</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="content">
+    <!-- DASHBOARD -->
+    <div class="section active" id="sec-dashboard">
+      <div class="dash-hi">
+        <h2 id="dashHello">Bonjour 👋</h2>
+        <p>☀️ <span id="dashDate"></span> — Profite de l'été pour te ressourcer et préparer une rentrée qui cartonne !</p>
+      </div>
+      <div class="thermo" id="thermoBlock">
+        <div class="th-vis"><div class="th-num" id="thNum">0%</div><div class="th-lbl">Rentrée<br>prête</div></div>
+        <div class="th-right">
+          <div class="th-title" id="thTitle">🌱 Tu démarres la colo !</div>
+          <div class="th-desc" id="thDesc">Commence par explorer les catégories. Chaque activité terminée te rapproche d'une rentrée au top !</div>
+          <div class="th-bar"><div class="th-fill" id="thFill" style="width:0%"></div></div>
+        </div>
+      </div>
+      <div class="week-ban">
+        <div style="flex:1">
+          <div class="wb-tag">⚡ Défi de la semaine</div>
+          <div class="wb-title">Massage à l'Aveugle</div>
+          <div class="wb-desc">Pratique un soin complet les yeux bandés. Coupe le visuel pour développer ton toucher en profondeur. Ressenti garanti !</div>
+        </div>
+        <button class="wb-btn" onclick="goSec('jeux');toast('🎯 Défis ouverts !','xp')">Je relève le défi !</button>
+      </div>
+      <div class="fcta">
+        <div style="flex:1">
+          <div class="fcta-tag">🎓 Formations APAM</div>
+          <div class="fcta-title">Prête pour la rentrée ? Découvre les formations en ligne !</div>
+          <div class="fcta-desc">Parcours intégral, formations à la carte, abonnements… tout est sur la plateforme APAM.</div>
+        </div>
+        <a href="https://formations.apprendreamasser.fr/" target="_blank" class="fcta-btn">Voir les formations →</a>
+      </div>
+      <div class="sub-title">📚 Mes catégories</div>
+      <div class="cat-grid">
+        <div class="cat-card cc-terra" onclick="goSec('quiz')"><div class="cc-ico">🧠</div><div class="cc-title">Quiz Pro</div><div class="cc-desc">Anatomie, posture, culture, lymphatique… Teste tes connaissances de façon ludique !</div><div class="cc-bar"><div class="cc-fill" id="ccQuiz" style="width:0%"></div></div><div class="cc-meta"><span><span id="cmQuiz">0</span>/5 quiz</span><span style="font-size:0.7rem;color:var(--terra)">+30 XP / quiz</span></div></div>
+        <div class="cat-card cc-teal" onclick="goSec('pause')"><div class="cc-ico">🙌</div><div class="cc-title">Pause Praticien</div><div class="cc-desc">Auto-massages, cohérence cardiaque, étirements… Prends soin de toi !</div><div class="cc-bar"><div class="cc-fill" id="ccPause" style="width:0%"></div></div><div class="cc-meta"><span><span id="cmPause">0</span>/6 séances</span><span style="font-size:0.7rem;color:var(--teal)">+15 XP / séance</span></div></div>
+        <div class="cat-card cc-lav" onclick="goSec('jeux')"><div class="cc-ico">🎮</div><div class="cc-title">Jeux de l'Été</div><div class="cc-desc">Vrai/Faux, défis créatifs, cas pratiques… jamais ennuyeux !</div><div class="cc-bar"><div class="cc-fill" id="ccJeux" style="width:0%"></div></div><div class="cc-meta"><span><span id="cmJeux">0</span>/8 défis</span><span style="font-size:0.7rem;color:var(--lav)">+20 XP / défi</span></div></div>
+        <div class="cat-card cc-gold" onclick="goSec('checklist')"><div class="cc-ico">✅</div><div class="cc-title">Checklist Juillet / Août</div><div class="cc-desc">20 actions concrètes pour préparer ta rentrée sans stresser.</div><div class="cc-bar"><div class="cc-fill" id="ccCheck" style="width:0%"></div></div><div class="cc-meta"><span><span id="cmCheck">0</span>/20 tâches</span><span style="font-size:0.7rem;color:var(--gold)">+5 XP / tâche</span></div></div>
+        <div class="cat-card cc-sage" onclick="goSec('boost')"><div class="cc-ico">🚀</div><div class="cc-title">Boost Business</div><div class="cc-desc">Carte de soins, soin éphémère automne, communication rentrée…</div><div class="cc-bar"><div class="cc-fill" id="ccBoost" style="width:0%"></div></div><div class="cc-meta"><span><span id="cmBoost">0</span>/5 modules</span><span style="font-size:0.7rem;color:var(--sage)">+25 XP / module</span></div></div>
+      </div>
+      <div class="sub-title">🔥 Mes stats de l'été</div>
+      <div class="stats-dash">
+        <div class="stat-card"><div class="stat-ico">🔥</div><div><div class="stat-num" id="stStreak">1</div><div class="stat-lbl">Jours de streak</div></div></div>
+        <div class="stat-card"><div class="stat-ico">⭐</div><div><div class="stat-num" id="stXP">0</div><div class="stat-lbl">XP totaux</div></div></div>
+        <div class="stat-card"><div class="stat-ico">🏅</div><div><div class="stat-num" id="stBadges">0</div><div class="stat-lbl">Badges gagnés</div></div></div>
+        <div class="stat-card"><div class="stat-ico">✅</div><div><div class="stat-num" id="stTotal">0</div><div class="stat-lbl">Activités totales</div></div></div>
+      </div>
+      <div class="sub-title">🏅 Mes Badges</div>
+      <div class="badges-grid" id="badgesGrid"></div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section" id="sec-quiz">
+      <div class="sec-title">🧠 Quiz du Praticien</div>
+      <div class="sec-desc">5 quiz · 10 questions chacun · Réponses expliquées · Score sauvegardé · Rejouable à l'infini</div>
+      <div class="quiz-list" id="quizListWrap"><div class="quiz-grid" id="quizGrid"></div></div>
+      <div class="quiz-panel" id="quizPanel">
+        <div class="qp-hdr">
+          <div><div class="qp-title" id="qpTitle">Quiz</div><div id="qpTag"></div></div>
+          <div class="q-pills" id="qPills"></div>
+        </div>
+        <div id="qContainer"></div>
+        <div class="q-res-card" id="qResult">
+          <div class="r-emoji" id="rEmoji">🎉</div>
+          <div class="r-title" id="rTitle">Bravo !</div>
+          <div class="r-score" id="rScore">8/10</div>
+          <div class="r-msg" id="rMsg"></div>
+          <div class="r-actions">
+            <button class="btn-s" onclick="retryQuiz()">🔄 Recommencer</button>
+            <button class="btn-p" onclick="backToQuizList()">📚 Tous les quiz</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAUSE -->
+    <div class="section" id="sec-pause">
+      <div class="sec-title">🙌 Pause Praticien</div>
+      <div class="sec-desc">Tu donnes beaucoup. Cet espace est entièrement dédié à prendre soin de <strong>toi</strong>.</div>
+      <div class="pause-grid" id="pauseGrid"></div>
+    </div>
+
+    <!-- JEUX -->
+    <div class="section" id="sec-jeux">
+      <div class="sec-title">🎮 Jeux de l'Été</div>
+      <div class="sec-desc">Vrai ou Faux, défis créatifs, cas pratiques clients… apprends en t'amusant !</div>
+      <div class="sub-title">🎲 Vrai ou Faux — Les idées reçues sur le massage</div>
+      <div class="vf-wrap">
+        <div class="vf-card" id="vfCard">
+          <div class="vf-num">Question <span id="vfNum">1</span> / <span id="vfTot">8</span></div>
+          <div class="vf-stmt" id="vfStmt"></div>
+          <div class="vf-btns">
+            <button class="vf-btn vf-v" onclick="ansVF(true)">✅ VRAI</button>
+            <button class="vf-btn vf-f" onclick="ansVF(false)">❌ FAUX</button>
+          </div>
+          <div class="vf-res" id="vfRes"></div>
+        </div>
+        <div style="text-align:center"><button class="btn-p" id="vfNextBtn" style="display:none" onclick="nextVF()">Question suivante →</button></div>
+        <div id="vfFinal" style="display:none;text-align:center;padding:32px;background:white;border-radius:28px;box-shadow:var(--sh-md)">
+          <div style="font-size:3.5rem;margin-bottom:12px">🏆</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--burgundy);margin-bottom:6px">Score final</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:var(--terra)" id="vfFinalScore">0/8</div>
+          <div style="color:var(--mid);font-size:0.9rem;margin:10px 0 20px" id="vfFinalMsg"></div>
+          <button class="btn-p" onclick="resetVF()">🔄 Recommencer</button>
+        </div>
+      </div>
+      <div style="height:1px;background:var(--sand);margin:28px 0"></div>
+      <div class="sub-title">⚡ Défis Hebdomadaires</div>
+      <div class="game-grid" id="gameGrid"></div>
+    </div>
+
+    <!-- CHECKLIST -->
+    <div class="section" id="sec-checklist">
+      <div class="sec-title">✅ Checklist Juillet / Août</div>
+      <div class="sec-desc">20 actions réparties sur 2 mois. Coche au fil de l'eau, sans pression !</div>
+      <div class="months-grid">
+        <div class="month-card">
+          <div class="mo-head"><div class="mo-ico" style="background:rgba(196,99,58,0.1)">☀️</div><div><h3>Juillet — On fait le tri</h3><p>Nettoyer, organiser, préparer</p></div></div>
+          <div class="mo-prog-txt"><span id="juilCount">0</span> / 10 actions</div>
+          <div class="cc-bar" style="margin-bottom:16px"><div id="juilBar" class="cc-fill" style="width:0%;background:linear-gradient(90deg,var(--terra),var(--sun))"></div></div>
+          <div id="listJuil"></div>
+        </div>
+        <div class="month-card">
+          <div class="mo-head"><div class="mo-ico" style="background:rgba(58,158,148,0.1)">🌊</div><div><h3>Août — On communique</h3><p>Marketing, planification, repos</p></div></div>
+          <div class="mo-prog-txt"><span id="aoutCount">0</span> / 10 actions</div>
+          <div class="cc-bar" style="margin-bottom:16px"><div id="aoutBar" class="cc-fill" style="width:0%;background:linear-gradient(90deg,var(--teal),#6BC5BE)"></div></div>
+          <div id="listAout"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOOST -->
+    <div class="section" id="sec-boost">
+      <div class="sec-title">🚀 Boost Business</div>
+      <div class="sec-desc">5 modules pratiques pour construire une rentrée qui cartonne.</div>
+      <div class="boost-intro"><h3>🚀 Booste ton activité cet automne</h3><p>Carte de soins repensée, soin éphémère d'automne, email de rentrée, stratégie réseaux, forfaits fidélité… construis ta stratégie cet été !</p></div>
+      <div class="boost-grid" id="boostGrid"></div>
+    </div>
+
+    <!-- RENTRÉE -->
+    <div class="section" id="sec-rentree">
+      <div class="rentree-hero">
+        <h2>🍂 Prépare ta Rentrée de Rêve</h2>
+        <p>Septembre approche. Transforme ton été de ressourcement en une rentrée qui a du sens, du style et de l'impact.</p>
+      </div>
+      <div class="rentree-grid" id="rentreeGrid"></div>
+      <div class="worksheet">
+        <div class="ws-title">✍️ Mon plan perso pour septembre</div>
+        <div class="ws-inputs">
+          <input class="ws-inp" id="ws1" placeholder="Mon objectif numéro 1 pour septembre est…" oninput="saveWS()"/>
+          <input class="ws-inp" id="ws2" placeholder="La première action que je fais dès le 1er août est…" oninput="saveWS()"/>
+          <input class="ws-inp" id="ws3" placeholder="Mon soin éphémère d'automne s'appellera…" oninput="saveWS()"/>
+          <input class="ws-inp" id="ws4" placeholder="Je veux attirer ce type de client cet automne…" oninput="saveWS()"/>
+          <input class="ws-inp" id="ws5" placeholder="La formation que je veux faire avant fin 2025…" oninput="saveWS()"/>
+        </div>
+        <div style="margin-top:14px;text-align:right"><button class="btn-p" onclick="saveWSFull()">💾 Sauvegarder mon plan</button></div>
+      </div>
+      <div class="fcta" style="margin-top:24px">
+        <div style="flex:1">
+          <div class="fcta-tag">🎓 Et après la colo ?</div>
+          <div class="fcta-title">Continue à monter en compétence avec les formations APAM</div>
+          <div class="fcta-desc">Parcours intégral, formations à la carte, abonnements, masterclass présentiel…</div>
+        </div>
+        <a href="https://formations.apprendreamasser.fr/" target="_blank" class="fcta-btn">Découvrir les formations →</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <strong>La Colo du Club APAM</strong> — <a href="https://www.apprendreamasser.fr" target="_blank">apprendreamasser.fr</a> &nbsp;·&nbsp;
+    Développé par <strong>Fanny Perot</strong>, experte massage &amp; formatrice depuis 15 ans &nbsp;·&nbsp;
+    © 2025 Apprendre à Masser — Tous droits de reproduction, diffusion et exploitation réservés. Toute reproduction partielle ou totale est interdite sans autorisation écrite préalable. &nbsp;·&nbsp;
+    <a href="https://www.apprendreamasser.fr/politique-de-confidentialite/" target="_blank">Confidentialité</a> &nbsp;·&nbsp;
+    <a href="https://www.apprendreamasser.fr/mentions-legales/" target="_blank">Mentions légales</a>
+  </footer>
+</div>
+
+<!-- PAUSE MODAL -->
+<div class="modal-ov" id="modalPause">
+  <div class="modal-c" style="max-width:520px">
+    <button class="modal-x" onclick="document.getElementById('modalPause').classList.remove('open')">✕</button>
+    <div id="pauseContent"></div>
+  </div>
+</div>
+
+<!-- USER MENU -->
+<div class="modal-ov" id="modalUser">
+  <div class="modal-c" style="max-width:340px;text-align:center">
+    <button class="modal-x" onclick="document.getElementById('modalUser').classList.remove('open')">✕</button>
+    <div class="avatar" style="width:60px;height:60px;font-size:1.5rem;margin:0 auto 12px" id="umAv">?</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--burgundy);margin-bottom:4px" id="umName">…</div>
+    <div style="font-size:0.8rem;color:var(--mid);margin-bottom:6px" id="umEmail">…</div>
+    <div style="font-size:0.8rem;color:var(--mid);margin-bottom:16px" id="umSpe"></div>
+    <div style="background:var(--light);border-radius:12px;padding:14px;margin-bottom:18px">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--terra)" id="umXP">0</div>
+      <div style="font-size:0.7rem;color:var(--mid);text-transform:uppercase;letter-spacing:0.05em">XP gagnés cet été</div>
+    </div>
+    <a href="https://formations.apprendreamasser.fr/" target="_blank" class="fcta-btn" style="display:block;margin-bottom:12px">🎓 Voir les formations APAM</a>
+    <button class="btn-s" style="width:100%" onclick="doLogout()">🚪 Se déconnecter</button>
+  </div>
+</div>
+<script>
+// ================================================================
+// SUPABASE CONFIG — replace when deploying
+// ================================================================
+// const SUPABASE_URL = 'https://YOUR-PROJECT.supabase.co';
+// const SUPABASE_ANON_KEY = 'your-anon-public-key';
+// BREVO WEBHOOK: create a Supabase Edge Function triggered on auth.users INSERT
+// that calls POST https://api.brevo.com/v3/contacts with { email, attributes:{PRENOM,SPECIALITE}, listIds:[YOUR_LIST_ID] }
+
+// ================================================================
+// STATE
+// ================================================================
+let S = { user:null, xp:0, checklist:{}, quizDone:[], boostDone:[], defisDone:[], pauseDone:[], vfDone:false, worksheet:{}, badgesUnlocked:[] };
+
+// ================================================================
+// BADGES
+// ================================================================
+const BADGES = [
+  {id:'first',   icon:'🌱', name:'Premier Pas',      cond:'1ère activité complétée',        chk:()=>totalAct()>=1},
+  {id:'qfirst',  icon:'🧠', name:'Quiz Maniaque',    cond:'1er quiz terminé',               chk:()=>S.quizDone.length>=1},
+  {id:'qmaster', icon:'🏆', name:'Expert Massage',   cond:'Tous les quiz terminés',         chk:()=>S.quizDone.length>=5},
+  {id:'zen',     icon:'🧘', name:'Praticien Zen',    cond:'3 séances Pause faites',         chk:()=>S.pauseDone.length>=3},
+  {id:'selfcare',icon:'💆', name:'Self-Care Star',   cond:'Toutes les pauses complétées',   chk:()=>S.pauseDone.length>=6},
+  {id:'daring',  icon:'⚡', name:'Oser le Défi',     cond:'3 défis hebdos relevés',         chk:()=>S.defisDone.length>=3},
+  {id:'check50', icon:'✅', name:'À Mi-Chemin',      cond:'10 tâches checklist cochées',    chk:()=>Object.values(S.checklist).filter(Boolean).length>=10},
+  {id:'business',icon:'🚀', name:'Business Boostée', cond:'Tous les modules terminés',      chk:()=>S.boostDone.length>=5},
+  {id:'ready',   icon:'🍂', name:'Prête pour Sept.', cond:'Plan de rentrée complété',       chk:()=>Object.values(S.worksheet).filter(v=>v&&v.length>3).length>=4},
+  {id:'boss',    icon:'🌟', name:'Summer Boss',      cond:'40 activités — Cahier complet !',chk:()=>totalAct()>=40}
+];
+
+// ================================================================
+// QUIZ DATA
+// ================================================================
+const QUIZZES = [
+  {title:'Muscles & Fascias', tag:'Anatomie', color:'var(--terra)', tbg:'rgba(196,99,58,0.1)', qs:[
+    {q:'Quel est le muscle le plus volumineux du corps humain ?',a:['Le grand dorsal','Le grand fessier','Le quadriceps','Le soléaire'],c:1,e:'Le grand fessier (gluteus maximus) est le plus volumineux. Rôle clé dans l\'extension et la rotation externe de la hanche.'},
+    {q:'Les fascias sont principalement composés de :',a:['Collagène et élastine','Calcium et phosphore','Glycogène et lipides','Myosine et actine'],c:0,e:'Les fascias sont des tissus conjonctifs composés de fibres de collagène et d\'élastine, leur donnant résistance et élasticité.'},
+    {q:'Quelle technique cible spécifiquement les fascias ?',a:['L\'effleurage','Le pétrissage','Le Rolfing / fasciathérapie','La vibration'],c:2,e:'Le Rolfing (Intégration Structurale) et la fasciathérapie sont développés spécifiquement pour travailler sur les fascias.'},
+    {q:'Le syndrome du canal carpien touche principalement quel nerf ?',a:['Nerf radial','Nerf ulnaire','Nerf médian','Nerf axillaire'],c:2,e:'Le canal carpien est traversé par le nerf médian. Sa compression cause les fourmillements caractéristiques — risque professionnel majeur.'},
+    {q:'L\'effleurage agit principalement sur quel système ?',a:['Système osseux','Système nerveux superficiel','Système digestif','Système reproducteur'],c:1,e:'L\'effleurage, par ses mouvements lents et superficiels, agit sur le système nerveux cutané, induisant une détente neuro-musculaire progressive.'},
+    {q:'Quel muscle est surnommé "le muscle de l\'âme" ?',a:['Le trapèze','Le psoas','Le diaphragme','Le piriforme'],c:1,e:'Le psoas relie la colonne au fémur et stocke les tensions émotionnelles liées au stress et à la peur. Souvent surnommé "muscle de l\'âme".'},
+    {q:'Le DOMS (courbatures) survient généralement :',a:['Pendant l\'effort','Immédiatement après','24 à 72h après','Plus d\'une semaine après'],c:2,e:'Les DOMS apparaissent 24-72h après un effort intense. Liés aux micro-lésions musculaires et à l\'inflammation réparatrice.'},
+    {q:'Le pétrissage cible principalement :',a:['La peau uniquement','Les muscles profonds','Les os','Les organes internes'],c:1,e:'Le pétrissage est une compression-décompression qui cible les muscles profonds, favorisant l\'élimination des déchets métaboliques.'},
+    {q:'Quelle structure relie les muscles aux os ?',a:['Les ligaments','Les tendons','Les aponévroses','Les ménisques'],c:1,e:'Les tendons sont des structures fibreuses de collagène qui transmettent la force de contraction musculaire pour produire le mouvement.'},
+    {q:'Les muscles agonistes et antagonistes travaillent :',a:['Toujours ensemble identiquement','En opposition coordonnée pour le mouvement','Indépendamment','Uniquement dans les membres inférieurs'],c:1,e:'Les agonistes initient le mouvement, les antagonistes le freinent. Cette coordination est essentielle à la biomécanique.'}
+  ]},
+  {title:'Posture & Protection', tag:'Ergonomie', color:'var(--teal)', tbg:'rgba(58,158,148,0.1)', qs:[
+    {q:'La bonne hauteur de table est :',a:['Au niveau des hanches','Au niveau du poing fermé tombant naturellement','Au niveau du nombril','Au niveau de la poitrine'],c:1,e:'Règle d\'or : la table doit être à la hauteur de votre poing fermé tombant le long du corps. Travail sans se courber ni s\'étirer.'},
+    {q:'Pour protéger ses pouces, on doit :',a:['Plier les pouces au maximum','Travailler EN SUPPORT (pouce soutenu par les autres doigts)','Éviter tout contact pouce','Utiliser des mitaines'],c:1,e:'Travailler EN SUPPORT signifie que le pouce ne force jamais seul : soutenu par les autres doigts ou le poids du corps.'},
+    {q:'La posture du "cavalier" permet de :',a:['Travailler plus vite','Utiliser le poids du corps au lieu de la force musculaire','Élargir le champ de vision','Atteindre les zones hautes'],c:1,e:'La posture du cavalier permet de transférer le poids du corps dans la pression, préservant les muscles des bras et du dos.'},
+    {q:'Maximum de soins/semaine recommandé :',a:['10 soins','20-25 soins','35-40 soins','Pas de limite'],c:1,e:'La plupart des experts recommandent un maximum de 20-25 soins par semaine pour préserver sa santé physique sur le long terme.'},
+    {q:'Étirement recommandé après une journée de soins :',a:['Mollets uniquement','Genoux flex-extension','Extenseurs et fléchisseurs des poignets','Rotations chevilles'],c:2,e:'Les étirements réguliers des extenseurs (bras tendu, doigts vers le bas) et fléchisseurs (doigts vers le haut) préviennent les tendinites.'},
+    {q:'Pour protéger son dos lors des pressions, il faut :',a:['Se pencher en arrondissant le dos','Fléchir les genoux et garder le dos droit','Se tenir très loin','Croiser les bras'],c:1,e:'Fléchir les genoux abaisse le centre de gravité sans compromettre la colonne. Le dos droit préserve les disques intervertébraux.'},
+    {q:'L\'utilisation de l\'avant-bras est recommandée car :',a:['Elle est plus rapide','Elle préserve les petites articulations des mains','Elle est plus efficace sur tous les tissus','Elle demande moins de concentration'],c:1,e:'L\'avant-bras permet de couvrir de grandes surfaces avec pression constante, en préservant les articulations des doigts et pouces.'},
+    {q:'Fréquence recommandée pour se faire masser soi-même :',a:['Jamais','Une fois par an','1 à 2 fois par mois','Uniquement en cas de douleur'],c:2,e:'Recevoir 1-2 massages par mois maintient sa santé physique et psychique, et permet de "ressentir de l\'intérieur" ce que vit son client.'},
+    {q:'Le syndrome de la coiffe des rotateurs touche :',a:['Le coude','L\'épaule','Le genou','La cheville'],c:1,e:'La coiffe des rotateurs regroupe 4 muscles de l\'épaule. Les mouvements répétitifs peuvent provoquer inflammations ou ruptures partielles.'},
+    {q:'La tendinite de De Quervain est causée par :',a:['Pressions avec la paume','Mouvements répétitifs de déviations du poignet avec pince pouce-index sous charge','Effleurage','Pressions en avant-bras'],c:1,e:'Tendinite fréquente chez les masseurs, touchant les tendons du court extenseur et du long abducteur du pouce.'}
+  ]},
+  {title:'Histoire & Origines', tag:'Culture', color:'var(--lav)', tbg:'rgba(155,114,170,0.1)', qs:[
+    {q:'Le massage suédois a été développé au :',a:['XVIe siècle','XIXe siècle','XVIIe siècle','XXe siècle'],c:1,e:'Pehr Henrik Ling (1776-1839) a développé son "Mouvement médical" au XIXe siècle. Base du massage suédois moderne.'},
+    {q:'Le massage thaïlandais est issu de :',a:['La médecine grecque','La médecine ayurvédique et du bouddhisme','La médecine chinoise uniquement','Du shamanisme'],c:1,e:'Le nuad phaen boran mêle médecine ayurvédique indienne et pratiques bouddhistes. Fondateur légendaire : Jivaka Kumar Bhaccha.'},
+    {q:'Les méridiens du shiatsu viennent de :',a:['La tradition occidentale','La médecine traditionnelle chinoise','La naturopathie européenne','La médecine tibétaine'],c:1,e:'Le shiatsu s\'appuie sur les méridiens et points d\'acupuncture de la MTC, appliqués par pression digitale.'},
+    {q:'L\'Abhyanga (massage ayurvédique) se caractérise par :',a:['Des percussions tonifiantes','Des effleurages lents avec de grandes quantités d\'huile chaude','Des étirements articulaires profonds','Des pressions sur les méridiens'],c:1,e:'L\'Abhyanga utilise de longs mouvements d\'effleurage avec huile de sésame chaude pour équilibrer les doshas.'},
+    {q:'La mère de la réflexologie moderne est :',a:['Eunice Ingham','Wilhelm Reich','Ida Rolf','Andrew Taylor Still'],c:0,e:'Eunice D. Ingham (1889-1974) a cartographié les zones réflexes du pied en relation avec tous les organes dans les années 1930.'},
+    {q:'"Amma" en japonais signifie :',a:['Pression et toucher','Calmer en appuyant et en frottant','Énergie vitale','Soulager la douleur'],c:1,e:'L\'Amma/Anma est l\'une des plus anciennes formes de massage japonais, pratiqué depuis plus de 1000 ans.'},
+    {q:'Le Lomi Lomi est originaire de :',a:['Nouvelle-Zélande','Polynésie / Hawaï','Philippines','Tasmanie'],c:1,e:'Le Lomi Lomi Nui est le massage traditionnel hawaien, avec de longs mouvements fluides aux avant-bras, accompagnés de chants.'},
+    {q:'Le mot "massage" vient probablement de :',a:['L\'hébreu','L\'arabe "mass" ou du grec "massein" (pétrir)','Du latin "massare"','Du sanskrit "mardana"'],c:1,e:'Étymologie débattue : arabe "mass" (palper) ou grec "massein" (pétrir), tous deux renvoyant à l\'acte manuel fondamental.'},
+    {q:'Hippocrate recommandait le massage pour :',a:['Uniquement les blessures sportives','Presque toutes les maladies, après un bain','Les maladies mentales uniquement','Préparer les soldats'],c:1,e:'Hippocrate recommandait la "anatripsis" pour de nombreuses pathologies, notamment après le bain pour maximiser les effets.'},
+    {q:'Le Hot Stone utilise des pierres de quel type ?',a:['Marbre blanc','Basalte volcanique','Quartz rose','Granit'],c:1,e:'Le basalte est une roche volcanique qui retient exceptionnellement bien la chaleur et la restitue progressivement.'}
+  ]},
+  {title:'Drainage & Circulation', tag:'Lymphatique', color:'var(--burgundy)', tbg:'rgba(123,63,43,0.1)', qs:[
+    {q:'Le drainage lymphatique manuel a été créé par :',a:['Emil Vodder','Andrew Still','James Cyriax','Per Ling'],c:0,e:'Emil Vodder (1896-1986) a développé la technique du DLM en France dans les années 1930. Méthode Vodder = référence internationale.'},
+    {q:'La pression lors d\'un DLM doit être :',a:['Forte et vigoureuse','Très légère, inférieure à 30 mmHg','Similaire à un massage sportif','Variable selon la tolérance'],c:1,e:'Le DLM s\'effectue avec des pressions très légères (< 30 mmHg). Les capillaires lymphatiques sont superficiels et fragiles.'},
+    {q:'La lymphe circule principalement grâce :',a:['Au pompage cardiaque','À la contraction musculaire et aux mouvements respiratoires','À la pression artérielle','À la gravité uniquement'],c:1,e:'Contrairement au sang, la lymphe n\'a pas de pompe cardiaque. Elle circule grâce aux contractions musculaires et à la respiration.'},
+    {q:'Premier ganglion traité pour le membre inférieur :',a:['Axillaire','Inguinal','Cervical','Poplité'],c:1,e:'Le DLM commence toujours par "ouvrir" les ganglions terminaux les plus proches du tronc. Pour le membre inférieur : ganglions inguinaux.'},
+    {q:'Contre-indication absolue au DLM :',a:['Jambes lourdes chroniques','Lymphœdème stabilisé','Thrombose veineuse profonde aiguë','Cicatrice ancienne'],c:2,e:'La TVP aiguë est une contre-indication ABSOLUE : le massage risque de déplacer le caillot et provoquer une embolie pulmonaire.'},
+    {q:'Le système lymphatique joue un rôle majeur dans :',a:['La production d\'insuline','L\'immunité et l\'élimination des déchets cellulaires','La coagulation sanguine','La production d\'hormones'],c:1,e:'Le système lymphatique est composante essentielle du système immunitaire : filtre les agents pathogènes et élimine les déchets.'},
+    {q:'La vitesse du DLM doit être :',a:['Rapide et dynamique','Très lente (1 cycle toutes les 1-2 secondes)','Variable sans règle','Identique au rythme cardiaque'],c:1,e:'Le DLM s\'exécute très lentement, environ 1 mouvement toutes les 1-2 secondes, imitant le rythme naturel de la contraction lymphatique.'},
+    {q:'Le liquide interstitiel devient lymphe quand il :',a:['Entre dans les artères','Entre dans les capillaires lymphatiques','Entre dans les veines','Est filtré par les reins'],c:1,e:'Le liquide interstitiel absorbé par les capillaires lymphatiques devient lymphe, filtrée dans les ganglions avant de retourner en circulation.'},
+    {q:'La pressothérapie (Ballancer) est :',a:['Un massage sportif manuel','Un drainage mécanique par compression pneumatique séquentielle','Une technique thermale','Une vibration ultrasonique'],c:1,e:'La pressothérapie utilise des manchons gonflables à pression séquentielle pour imiter le DLM manuel.'},
+    {q:'DLM pendant la grossesse :',a:['Jamais, contre-indiqué à tous les stades','Possible avec accord médical, surtout au 3ème trimestre','Librement à tous les stades','Uniquement au 1er trimestre'],c:1,e:'DLM possible mais nécessite formation adaptée et accord médical, surtout au 3ème trimestre. Certains points et zones sont à éviter.'}
+  ]},
+  {title:'Contre-indications', tag:'Bien-être', color:'var(--sage)', tbg:'rgba(107,143,113,0.1)', qs:[
+    {q:'Contre-indication ABSOLUE signifie :',a:['Adapter la technique','Ne jamais pratiquer dans cette situation','Réduire la pression','Consulter avant de continuer'],c:1,e:'Contre-indication absolue = NON catégorique. Aucune forme de massage ne doit être pratiquée (thrombose, fièvre élevée, cancer non stabilisé…).'},
+    {q:'Client avec 38.8°C de fièvre :',a:['Pratiquer un massage léger','Refuser le soin et orienter vers un médecin','Pratiquer uniquement les pieds','Attendre 30 min'],c:1,e:'La fièvre est une contre-indication absolue. Le massage stimule la circulation et peut aggraver l\'état infectieux.'},
+    {q:'Client sous anticoagulants (Xarelto, Coumadine) :',a:['Aucune adaptation','Pressions profondes autorisées aux membres','Éviter les pressions profondes, risque d\'hématome','Massage totalement interdit'],c:2,e:'Les anticoagulants diminuent la coagulation. Des pressions trop profondes peuvent provoquer des hématomes internes importants.'},
+    {q:'Le massage est contre-indiqué directement sur :',a:['Une cicatrice de +6 mois','Des varices importantes et proéminentes','Des courbatures légères','Un tatouage de +3 semaines'],c:1,e:'Les varices importantes sont des contre-indications locales : risque de rupture des parois veineuses fragilisées.'},
+    {q:'En cas de cancer, le massage est :',a:['Toujours interdit','Possible avec adaptation et accord oncologique','Interdit si chimio en cours','Recommandé sans restriction'],c:1,e:'Le massage oncologique est une spécialité à part entière. Avec accord de l\'équipe médicale et formation adaptée, il est possible et bénéfique.'},
+    {q:'Entorse cheville 24h après la blessure :',a:['Masser vigoureusement','Appliquer RICE — aucun massage local','Pratiquer un drainage léger','Masser les mollets uniquement'],c:1,e:'En phase aiguë (48-72h), c\'est RICE : Rest, Ice, Compression, Elevation. Aucun massage local — risque d\'aggraver les lésions.'},
+    {q:'Le diabète est une contre-indication :',a:['Absolue — massage totalement interdit','Relative — adaptation nécessaire','Sans impact','Uniquement pour le type 1'],c:1,e:'Contre-indication relative : éviter zones d\'injection, surveiller la sensibilité cutanée (neuropathies), éviter pressions trop intenses.'},
+    {q:'Cliente enceinte de 4 mois :',a:['Massage interdit 1er et 2ème trimestre','Éviter pressions sur l\'abdomen, le sacrum et certains points réflexes','Pas de précaution après 3 mois','Seul le crâne est autorisé'],c:1,e:'Éviter pressions sur l\'abdomen, le sacrum et les points pouvant déclencher contractions (SP6, LI4, BL60). Formation spécifique recommandée.'},
+    {q:'Client avec psoriasis en plaques :',a:['Masser normalement, non contagieux','Refuser le soin','Masser en évitant les lésions actives, avec accord médical','Masser uniquement avec des gants'],c:2,e:'Le psoriasis est non contagieux. On évite les plaques actives (risque de phénomène de Koebner). Accord médical pour formes sévères.'},
+    {q:'Face à une situation médicale inconnue :',a:['Pratiquer en espérant que ça ira','Refuser systématiquement','Demander un accord médical écrit avant la séance','S\'adapter au feeling'],c:2,e:'Demander l\'avis médical est la démarche la plus professionnelle. Elle protège le client ET le praticien (responsabilité civile professionnelle).'}
+  ]}
+];
+
+// ================================================================
+// VF DATA
+// ================================================================
+const VF = [
+  {s:'Le massage permet d\'éliminer les toxines du corps.',a:false,e:'❌ FAUX : Le corps élimine ses déchets via les reins, le foie et les poumons. Le massage favorise la circulation du liquide interstitiel et mobilise certains déchets métaboliques locaux — mais ce n\'est pas une voie d\'élimination directe.'},
+  {s:'Un massage peut réduire le taux de cortisol (hormone du stress).',a:true,e:'✅ VRAI : Des études montrent qu\'un massage de 45-60 min peut réduire significativement le cortisol salivaire et augmenter la sérotonine et la dopamine. Effet mesurable dès une seule séance.'},
+  {s:'Le massage sportif doit toujours être vigoureux et douloureux pour être efficace.',a:false,e:'❌ FAUX : Un massage trop douloureux active le système nerveux sympathique (stress), ce qui est contra-productif. La récupération optimale passe par la détente, pas la douleur.'},
+  {s:'Les fascias transmettent des tensions à distance dans le corps.',a:true,e:'✅ VRAI : Les fascias forment un réseau continu. Une tension en un point peut se transmettre à des zones éloignées — par exemple, des fascias plantaires tendus peuvent influencer les douleurs lombaires.'},
+  {s:'Boire de l\'eau après un massage n\'est qu\'une croyance marketing.',a:false,e:'❌ FAUX : L\'hydratation post-massage a un sens physiologique réel. Elle soutient l\'élimination des déchets métaboliques mobilisés et soutient le travail rénal. Ce n\'est pas qu\'un mythe !'},
+  {s:'Le shiatsu et l\'acupuncture travaillent sur les mêmes points énergétiques.',a:true,e:'✅ VRAI : Le shiatsu utilise les points tsubo et méridiens de la MTC, les mêmes qu\'en acupuncture. Différence : l\'acupuncture utilise des aiguilles, le shiatsu la pression digitale.'},
+  {s:'On doit toujours masser vers le cœur, sans aucune exception.',a:false,e:'❌ NUANCÉ : Pour le drainage veineux et lymphatique, oui. Mais l\'effleurage général peut aller dans les deux sens. Le sens unique vers le cœur est une règle pour les techniques drainantes, pas pour tous les mouvements.'},
+  {s:'Un massage bien-être peut avoir des effets thérapeutiques même sans viser une pathologie.',a:true,e:'✅ VRAI : Le massage bien-être agit sur le système nerveux parasympathique, réduit l\'anxiété, améliore le sommeil, diminue les tensions chroniques. Ses effets thérapeutiques indirects sont documentés scientifiquement.'}
+];
+
+// ================================================================
+// CHECKLIST DATA
+// ================================================================
+const CHECKS = {
+  juil:[
+    {id:'j1',t:'Faire l\'inventaire des huiles, produits et consommables',tag:'soin'},
+    {id:'j2',t:'Passer les commandes de réapprovisionnement pour août',tag:'business'},
+    {id:'j3',t:'Nettoyer et désinfecter à fond la table et l\'espace de soin',tag:'soin'},
+    {id:'j4',t:'Réviser et mettre à jour sa carte de soins / ses tarifs',tag:'business'},
+    {id:'j5',t:'Programmer les messages d\'absence été / adapter les horaires',tag:'admin'},
+    {id:'j6',t:'Lire un livre professionnel en lien avec sa pratique',tag:'bien-etre'},
+    {id:'j7',t:'Tester une nouvelle technique sur soi-même ou un proche',tag:'soin'},
+    {id:'j8',t:'Mettre à jour son profil Google Business et ses réseaux',tag:'marketing'},
+    {id:'j9',t:'Faire le bilan du 1er semestre (CA, clients, soins les plus demandés)',tag:'business'},
+    {id:'j10',t:'Prendre 3 jours de déconnexion totale (sans pro, sans écrans)',tag:'bien-etre'}
+  ],
+  aout:[
+    {id:'a1',t:'Préparer 8 posts Instagram/Facebook pour septembre',tag:'marketing'},
+    {id:'a2',t:'Envoyer un email "Bonnes nouvelles de l\'été" à sa clientèle',tag:'marketing'},
+    {id:'a3',t:'Créer et pitcher son soin éphémère d\'automne',tag:'soin'},
+    {id:'a4',t:'Définir ses objectifs de CA pour le 2ème semestre (chiffre précis !)',tag:'business'},
+    {id:'a5',t:'Réserver sa propre formation de rentrée (CPF ou investissement perso)',tag:'business'},
+    {id:'a6',t:'Créer un forfait ou abonnement fidélité pour la rentrée',tag:'business'},
+    {id:'a7',t:'Revoir son formulaire d\'anamnèse / questionnaire client',tag:'soin'},
+    {id:'a8',t:'Identifier 3 partenaires locaux potentiels (yoga, naturo, coiffeur…)',tag:'marketing'},
+    {id:'a9',t:'Préparer ses chèques-cadeaux Noël (design, tarifs, mise en ligne)',tag:'business'},
+    {id:'a10',t:'Se faire masser ! Prendre RDV chez un confrère ou une consœur',tag:'bien-etre'}
+  ]
+};
+
+// ================================================================
+// BOOST MODULES
+// ================================================================
+const BOOSTS = [
+  {ico:'🗺️',title:'Repense ta Carte de Soins',tag:'Business',bg:'rgba(196,99,58,0.1)',col:'var(--terra)',steps:['Audite tes soins actuels : lesquels tu aimes pratiquer ? Lesquels sont les plus rentables ?','Crée un soin "signature" unique avec un nom accrocheur qui te ressemble vraiment.','Propose 3 niveaux : découverte (45 min), essentiel (60 min), prestige (90 min). Augmente ta valeur perçue.','Rédige une description émotionnelle : ce que le client va RESSENTIR, pas juste ce que tu fais.','Révise tes tarifs selon ton positionnement. Une hausse de 5-10% est souvent invisible pour le client fidèle.']},
+  {ico:'🍂',title:'Créer un Soin Éphémère d\'Automne',tag:'Créativité',bg:'rgba(212,168,83,0.12)',col:'#9A7200',steps:['Choisis un thème fort : "Cocooning & Ancrage", "Rituel Forêt", "Baume du Retour"…','Sélectionne des huiles de saison (karité, chanvre, calendula) et des HE chaleureuses (cannelle, vétiver, ylang-ylang).','Construis un protocole de 60-75 min avec un rituel d\'accueil (décoction chaude) et de clôture (enveloppement chaud).','Limite sa disponibilité : "Seulement 20 créneaux, sept-oct-nov." La rareté crée le désir.','Crée un nom poétique et des visuels Instagram : "Le Baume de l\'Automne — Un soin pour ralentir avec la saison."']},
+  {ico:'📧',title:'L\'Email de Rentrée Parfait',tag:'Communication',bg:'rgba(58,158,148,0.1)',col:'var(--teal)',steps:['Envoie un email "Bonnes nouvelles de l\'été" mi-août avec une anecdote personnelle et authentique.','Annonce ton soin éphémère en EXCLUSIVITÉ à ta liste email — avant les réseaux sociaux.','Propose un lien de réservation directe pour les premières semaines de septembre.','Crée une offre early-bird : "Réserve avant le 25 août, -10% sur ta prochaine séance."','Termine par une vraie question : "Qu\'est-ce que tu veux prioriser pour toi cet automne ?" → crée l\'engagement.']},
+  {ico:'📱',title:'Stratégie Instagram Rentrée',tag:'Réseaux sociaux',bg:'rgba(155,114,170,0.1)',col:'var(--lav)',steps:['Prépare 8 posts de rentrée pendant l\'été (sept → oct) : coulisses soin éphémère, témoignage client, conseil bien-être, portrait.','Crée une série de Reels : "3 signes que ton corps a besoin d\'un massage" / "Mon rituel pré-soin" / "Une journée dans ma cabine".','Planifie avec Meta Business Suite ou Later. Objectif : 3 publications/semaine en septembre.','Crée une Storie à la une "Offre Automne" avec lien vers ta prise de rendez-vous.']},
+  {ico:'🎁',title:'Forfaits & Abonnements Fidélité',tag:'Fidélisation',bg:'rgba(107,143,113,0.1)',col:'var(--sage)',steps:['Crée un "Pass Rentrée Zen" : 4 séances à -15%, valable 2 mois. Prévendu dès fin août.','Lance une "Box Bien-être Automne" : 1 soin + 1 carnet de soins maison + 1 roll-on relaxant.','Propose un programme "Suivi mensuel" : 1 soin/mois + 1 appel check-in bien-être de 15 min.','Prépare tes chèques-cadeaux Noël dès maintenant pour novembre/décembre.']}
+];
+
+// ================================================================
+// PAUSE DATA
+// ================================================================
+const PAUSES = [
+  {ico:'🤲',title:'Libération Mains & Poignets',desc:'Décharge les tensions accumulées après une saison intense.',dur:'12 min',lvl:'d',bg:'rgba(196,99,58,0.08)',steps:[{e:'✋',t:'Secoue doucement les deux mains 30 secondes, comme pour les sécher naturellement.'},{e:'🔄',t:'Rotations des poignets : 10 cercles lents dans chaque sens. Sens les craquements partir.'},{e:'🤏',t:'Pince chaque doigt à la base et remonte vers la pointe avec une légère traction. 3 fois par doigt.'},{e:'👐',t:'Doigts entrelacés, flexions-extensions des poignets : 15 mouvements lents.'},{e:'💆',t:'Auto-massage du creux de la main avec le pouce opposé : cercles lents sur la paume et l\'éminence thénar.'},{e:'🌊',t:'Termines par tremper les mains dans de l\'eau fraîche 30 sec puis appliques quelques gouttes d\'huile de soin.'}]},
+  {ico:'😌',title:'Visage & Crâne — Digito-pression',desc:'Libère le mental et les tensions crâniennes avec les points réflexes du visage.',dur:'8 min',lvl:'d',bg:'rgba(58,158,148,0.08)',steps:[{e:'🌟',t:'Pose les deux paumes chaudes sur ton visage. Reste immobile 30 secondes. Sens la chaleur pénétrer.'},{e:'👆',t:'Tempes : pression circulaire avec index et majeurs. 3 × 10 cercles dans chaque sens.'},{e:'🔵',t:'Points sus-orbitaux : presse doucement la base des sourcils avec les pouces. 5 secondes par point, de l\'intérieur vers l\'extérieur.'},{e:'👃',t:'Sinus : du bout des index, masse de part et d\'autre des narines en remontant vers les pommettes. 10 passages.'},{e:'🦷',t:'Mâchoire : masse les masséters (joues) en mouvements circulaires. Ouvre grande la bouche 3 fois.'},{e:'🧠',t:'Cuir chevelu : gratte doucement avec les 10 doigts de l\'arrière vers l\'avant pendant 2 minutes.'}]},
+  {ico:'🦵',title:'Jambes Lourdes — Auto-Drainage',desc:'Technique de drainage douce pour soulager les jambes par forte chaleur.',dur:'10 min',lvl:'d',bg:'rgba(27,79,114,0.08)',steps:[{e:'🛋️',t:'Allonge-toi, jambes surélevées à 45° (oreillers sous les pieds). 2 minutes pour amorcer le retour veineux.'},{e:'🌊',t:'Effleurage orteils → cheville : mouvements très légers vers le haut. 10 passages sur chaque pied.'},{e:'⬆️',t:'Cheville → genou : pression légère, paumes à plat. Ne descends jamais la pression, remonte seulement.'},{e:'💧',t:'Pompage du creux poplité (derrière le genou) : 10 compressions légères. Stimule les ganglions poplités.'},{e:'🔄',t:'Rotations douces des chevilles : 10 cercles dans chaque sens. Puis flex-extensions pour activer la pompe musculaire.'},{e:'❄️',t:'Termines par un jet d\'eau fraîche de la cheville vers le genou. Tonifie les parois veineuses.'}]},
+  {ico:'💨',title:'Cohérence Cardiaque 5-5',desc:'5 minutes de respiration guidée pour réinitialiser ton système nerveux.',dur:'5 min',lvl:'d',bg:'rgba(155,114,170,0.08)',steps:[{e:'🪑',t:'Assieds-toi confortablement, dos droit. Une main sur le ventre, l\'autre sur la poitrine. Ferme les yeux.'},{e:'⬆️',t:'INSPIRATION lente par le nez pendant 5 secondes. Gonfle d\'abord le ventre, puis la poitrine.'},{e:'⬇️',t:'EXPIRATION lente par la bouche pendant 5 secondes. Vide d\'abord la poitrine, puis le ventre. Relâchement total.'},{e:'🔄',t:'Répète ce cycle 5s/5s pendant 5 minutes sans interruption. C\'est 6 respirations par minute — le rythme idéal.'},{e:'💆',t:'Si des pensées arrivent, reviens simplement au comptage. C\'est du recalibrage physiologique, pas de la méditation.'},{e:'🌟',t:'Après 5 minutes, ouvre les yeux lentement. Les effets (calme, clarté) durent jusqu\'à 4 heures après.'}]},
+  {ico:'🧘',title:'Étirements Dos & Lombaires',desc:'Décompresse la colonne vertébrale et soulage les lombaires.',dur:'15 min',lvl:'m',bg:'rgba(107,143,113,0.08)',steps:[{e:'🐱',t:'Chat-Vache : à quatre pattes, alterne dos creux et dos rond. 15 cycles lents.'},{e:'🧎',t:'Posture de l\'enfant : assis sur les talons, bras étirés devant. 1-2 minutes. Relâche les trapèzes consciemment.'},{e:'🔄',t:'Torsion au sol : allongé sur le dos, ramène un genou sur la poitrine et bascule-le de l\'autre côté. 45 sec par côté.'},{e:'🦋',t:'Étirement du psoas : en fente avant, genou arrière au sol. Bascule le bassin vers l\'avant. 45 sec par côté.'},{e:'🌉',t:'Le pont : allongé, pieds à plat, soulève le bassin. 30 secondes × 3. Renforce ET étire la chaîne postérieure.'},{e:'🧘',t:'Shavasana 2-3 min : allongé sur le dos, bras légèrement éloignés, paumes vers le haut. Laisse tout partir.'}]},
+  {ico:'🌟',title:'Visualisation de Ressourcement',desc:'Voyage guidé pour recharger tes batteries énergétiques.',dur:'10 min',lvl:'d',bg:'rgba(212,168,83,0.08)',steps:[{e:'🛋️',t:'Installe-toi allongé ou confortablement assis. Éteins les notifications. 3 respirations profondes pour signaler à ton corps que c\'est le moment de lâcher.'},{e:'🌅',t:'Visualise un lieu de nature qui te ressource. Pas un lieu inventé : un lieu que tu connais et aimes.'},{e:'🌿',t:'Intègre les 5 sens : que vois-tu ? Que sens-tu ? Quelle température ? Quels sons ? Que touches-tu ?'},{e:'☀️',t:'Imagine une lumière chaude et dorée qui enveloppe ton corps depuis le sommet du crâne jusqu\'aux pieds.'},{e:'💧',t:'Visualise une source d\'eau pure qui emporte avec elle tout ce qui te pèse. Tensions, doutes, peurs. Ils s\'en vont.'},{e:'✨',t:'Reste dans cet espace quelques minutes. Reviens doucement en bougeant les doigts et les orteils.'}]}
+];
+
+// ================================================================
+// DEFIS DATA
+// ================================================================
+const DEFIS = [
+  {id:'blind',  ico:'👁️', title:'Massage à l\'Aveugle',    desc:'Pratique un soin complet les yeux bandés. Développe ton sens du toucher et ta connexion profonde avec le client.', col:'var(--terra)'},
+  {id:'playlist',ico:'🎵',title:'La Playlist Surprise',    desc:'Crée une playlist musicale totalement nouvelle pour tes soins. Laisse-toi inspirer par un genre que tu n\'utilises jamais.', col:'var(--teal)'},
+  {id:'posture', ico:'🦅',title:'Posture du Cavalier',     desc:'Pratique toute une session en "posture du cavalier" ou en "fente avant". Note ta fatigue comparée à d\'habitude.', col:'var(--lav)'},
+  {id:'huile',   ico:'🌿',title:'L\'Huile Mystère',        desc:'Crée ton propre mélange d\'HE avec ce que tu as en stock. Teste sur toi d\'abord, puis sur un proche.', col:'#9A7200'},
+  {id:'cabine',  ico:'📸',title:'Mise en Scène Cabine',    desc:'Repense l\'ambiance de ta cabine pour 1 semaine : lumière, senteur, décor. Prends des photos avant/après.', col:'var(--sage)'},
+  {id:'enigme',  ico:'🧩',title:'L\'Énigme Clinique',      desc:'Cliente 45 ans, douleurs dorsales et jambes lourdes, 8h/jour assise. Quelles techniques privilégier ? Quelles contre-indications à vérifier ?', col:'var(--burgundy)'}
+];
+
+// ================================================================
+// RENTREE DATA
+// ================================================================
+const RENTREE = [
+  {col:'var(--terra)',title:'Ton identité professionnelle',items:['Quel type de praticien.ne veux-tu être cet automne ?','Quelle clientèle attires-tu ? Femmes actives, sportifs, séniors…','Quelle est ta promesse unique ? "Je t\'aide à décrocher vraiment" vs "Je soigne ta douleur"','Mets à jour ta bio Instagram et ta page Google en ce sens']},
+  {col:'var(--teal)', title:'Espace de soin repensé',items:['Change UN élément visuel de ta cabine (nouveau drap, bougie, tableau)','Crée une ambiance olfactive d\'automne (cèdre, patchouli, agrumes)','Prépare un rituel d\'accueil : tisane chaude ou eau infusée offerte','Rédige un nouveau "formulaire d\'intention" client pour personnaliser chaque séance']},
+  {col:'var(--lav)',  title:'Objectifs & Planning financier',items:['Fixe ton objectif de CA pour sept-oct-nov (chiffre précis !)','Calcule combien de soins/semaine pour l\'atteindre','Définis ton nb max de soins/semaine sans t\'épuiser (souvent 20-25)','Planifie 2 semaines de congés pour les fêtes dès maintenant']},
+  {col:'var(--gold)', title:'Formation & Montée en compétence',items:['Identifie UNE technique à apprendre ou perfectionner cet automne','Réserve ta formation dès maintenant (les meilleures dates partent vite)','Crée une wishlist de formations pour 2026 (CPF, investissement)','Rejoins ou crée un groupe d\'échange entre praticiens']},
+  {col:'var(--sage)', title:'Bien-être du praticien d\'abord',items:['Programme tes propres soins : 1 massage/mois minimum pour toi','Définis tes limites : horaires fixes, jours OFF, tel éteint après 20h','Crée un rituel "fin de journée" pour déconnecter du mode praticien','Identifie ce qui te vide et ce qui te ressource. Protège tes ressources.']},
+  {col:'var(--burgundy)',title:'Partenariats & Visibilité locale',items:['Contacte 3 commerces complémentaires (yoga, naturo, coiffeur bio) pour un échange de visibilité','Propose une offre croisée : ta carte chez eux, la leur chez toi','Participe à un marché local ou événement bien-être en sept/oct','Inscris-toi sur une plateforme locale de réservation si ce n\'est pas fait']}
+];
+
+// ================================================================
+// AUTH — Local (ready for Supabase swap)
+// ================================================================
+const DB='apam_users'; const ST='apam_state';
+function getUsers(){try{return JSON.parse(localStorage.getItem(DB))||{};}catch(e){return{};}}
+function saveUsers(u){try{localStorage.setItem(DB,JSON.stringify(u));}catch(e){}}
+
+function doRegister(){
+  const p=document.getElementById('rPrenom').value.trim();
+  const n=document.getElementById('rNom').value.trim();
+  const e=document.getElementById('rEmail').value.trim().toLowerCase();
+  const pw=document.getElementById('rPwd').value;
+  const sp=document.getElementById('rSpe').value;
+  if(!p||!e){showErr('errReg','⚠️ Prénom et email requis.');return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){showErr('errReg','⚠️ Format email invalide.');return;}
+  if(pw.length<8){document.getElementById('errPwd').classList.add('show');return;}
+  const u=getUsers();
+  if(u[e]){showErr('errReg','⚠️ Un compte existe déjà pour cet email. Connecte-toi !');return;}
+  u[e]={prenom:p,nom:n,email:e,pwd:btoa(pw),spe:sp,created:Date.now()};
+  saveUsers(u);
+  localStorage.setItem('apam_lastuser',e);
+  loadUserState(e);
+  S.user={prenom:p,nom:n,email:e,spe:sp};
+  saveState(); closeAuth(); launchApp();
+  toast(`🎉 Bienvenue ${p} dans la Colo du Club APAM !`,'win');
+  // TODO: callBrevoWebhook({prenom:p,nom:n,email:e,spe:sp});
+}
+
+function doLogin(){
+  const e=document.getElementById('lEmail').value.trim().toLowerCase();
+  const pw=document.getElementById('lPwd').value;
+  const u=getUsers();
+  if(!u[e]||u[e].pwd!==btoa(pw)){document.getElementById('errLog').classList.add('show');return;}
+  document.getElementById('errLog').classList.remove('show');
+  localStorage.setItem('apam_lastuser',e);
+  loadUserState(e);
+  S.user={prenom:u[e].prenom,nom:u[e].nom,email:e,spe:u[e].spe};
+  saveState(); closeAuth(); launchApp();
+  toast(`👋 Bon retour ${u[e].prenom} ! On reprend là où tu t\'étais arrêtée.`,'ok');
+}
+
+function doLogout(){
+  saveState();
+  localStorage.removeItem('apam_lastuser');
+  S.user=null;
+  document.getElementById('modalUser').classList.remove('open');
+  document.getElementById('screen-app').classList.remove('active');
+  document.getElementById('screen-landing').classList.add('active');
+  toast('👋 À très vite dans la Colo !','');
+}
+
+function loadUserState(email){
+  try{const r=localStorage.getItem(ST+'_'+email);if(r){const p=JSON.parse(r);S={...S,...p};}
+  else{S={user:null,xp:0,checklist:{},quizDone:[],boostDone:[],defisDone:[],pauseDone:[],vfDone:false,worksheet:{},badgesUnlocked:[]};}}catch(e){}
+}
+
+function saveState(){if(!S.user)return;try{localStorage.setItem(ST+'_'+S.user.email,JSON.stringify(S));}catch(e){}}
+
+function showErr(id,msg){const el=document.getElementById(id);if(!el)return;el.textContent=msg;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),4000);}
+
+// ================================================================
+// AUTH UI
+// ================================================================
+function openAuth(t){document.getElementById('modalAuth').classList.add('open');switchTab(t||'register');}
+function closeAuth(){document.getElementById('modalAuth').classList.remove('open');}
+function switchTab(t){
+  document.getElementById('fReg').style.display=t==='register'?'block':'none';
+  document.getElementById('fLog').style.display=t==='login'?'block':'none';
+  document.getElementById('tabReg').classList.toggle('active',t==='register');
+  document.getElementById('tabLog').classList.toggle('active',t==='login');
+  document.getElementById('authTitle').textContent=t==='register'?'Rejoindre la Colo 🌴':'Bon retour ! 👋';
+  document.getElementById('authSub').textContent=t==='register'?'Crée ton espace gratuit !':'Connecte-toi à ton espace.';
+}
+
+function showUserMenu(){
+  if(!S.user)return;
+  document.getElementById('umAv').textContent=S.user.prenom.charAt(0).toUpperCase();
+  document.getElementById('umName').textContent=S.user.prenom+' '+(S.user.nom||'');
+  document.getElementById('umEmail').textContent=S.user.email;
+  document.getElementById('umSpe').textContent=S.user.spe?'✨ Spécialité : '+S.user.spe:'';
+  document.getElementById('umXP').textContent=S.xp;
+  document.getElementById('modalUser').classList.add('open');
+}
+
+// ================================================================
+// APP LAUNCH
+// ================================================================
+function launchApp(){
+  document.getElementById('screen-landing').classList.remove('active');
+  document.getElementById('screen-app').classList.add('active');
+  const {prenom}=S.user;
+  document.getElementById('userAvatar').textContent=prenom.charAt(0).toUpperCase();
+  document.getElementById('userName').textContent=prenom;
+  document.getElementById('dashHello').textContent=`Bonjour ${prenom} 👋`;
+  document.getElementById('dashDate').textContent=new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'});
+  renderAll(); updateAll();
+}
+
+// ================================================================
+// RENDER
+// ================================================================
+function renderAll(){
+  renderBadges(); renderQuizCards(); renderPauseCards(); renderGameCards();
+  renderChecklist(); renderBoost(); renderRentree(); loadWS();
+}
+
+function renderBadges(){
+  document.getElementById('badgesGrid').innerHTML=BADGES.map(b=>{
+    const on=S.badgesUnlocked.includes(b.id);
+    return`<div class="badge-item ${on?'unlocked':'locked'}" id="bdg-${b.id}"><span class="b-ico">${b.icon}</span><div class="b-name">${b.name}</div><div class="b-cond">${b.cond}</div></div>`;
+  }).join('');
+}
+
+function renderQuizCards(){
+  document.getElementById('quizGrid').innerHTML=QUIZZES.map((q,i)=>`
+    <div class="quiz-card ${S.quizDone.includes(i)?'done':''}" onclick="startQuiz(${i})">
+      <div class="q-tag" style="background:${q.tbg};color:${q.color}">${q.tag}</div>
+      <div class="qc-title">${q.title}</div>
+      <div class="qc-desc">${q.qs[0].q.substring(0,55)}… et 9 autres questions</div>
+      <div class="qc-meta"><span>🎯 10 questions</span><span>⭐ 30 XP</span><span>⏱ ~5 min</span></div>
+    </div>`).join('');
+}
+
+function renderPauseCards(){
+  document.getElementById('pauseGrid').innerHTML=PAUSES.map((p,i)=>`
+    <div class="pause-card ${S.pauseDone.includes(i)?'done':''}" onclick="openPause(${i})">
+      <div class="pa-top" style="background:${p.bg}">
+        <span class="pa-dur">${p.dur}</span>
+        <div class="pa-ico">${p.ico}</div>
+        <div class="pa-title">${p.title}</div>
+        <div class="pa-desc">${p.desc}</div>
+      </div>
+      <div class="pa-foot">
+        <span class="pa-lvl ${p.lvl==='m'?'lvl-m':'lvl-d'}">${p.lvl==='m'?'Modéré':'Doux'}</span>
+        <button class="pa-play" style="background:${p.bg};color:var(--terra)">▶</button>
+      </div>
+    </div>`).join('');
+}
+
+function renderGameCards(){
+  document.getElementById('gameGrid').innerHTML=DEFIS.map(d=>{
+    const done=S.defisDone.includes(d.id);
+    return`<div class="game-card" style="border-top-color:${d.col}">
+      <div class="g-ico">${d.ico}</div>
+      <div class="g-title">${d.title}</div>
+      <div class="g-desc">${d.desc}</div>
+      ${done?`<div class="g-done">✅ Défi relevé ! +20 XP</div>`:`<button class="defi-btn" style="border-color:${d.col};color:${d.col}" onclick="doDefi('${d.id}')">Je l'ai fait ! +20 XP</button>`}
+    </div>`;
+  }).join('');
+}
+
+function renderChecklist(){
+  document.getElementById('listJuil').innerHTML=CHECKS.juil.map(c=>checkItem(c)).join('');
+  document.getElementById('listAout').innerHTML=CHECKS.aout.map(c=>checkItem(c)).join('');
+  updateCheckCounts();
+}
+
+function checkItem(c){
+  const on=S.checklist[c.id]||false;
+  return`<div class="check-item ${on?'checked':''}" id="ci-${c.id}" onclick="toggleCheck('${c.id}')"><div class="chk-box"></div><div><div class="chk-txt">${c.t}</div><span class="chk-tag tag-${c.tag}">${c.tag}</span></div></div>`;
+}
+
+function renderBoost(){
+  document.getElementById('boostGrid').innerHTML=BOOSTS.map((m,i)=>{
+    const done=S.boostDone.includes(i);
+    return`<div class="boost-card">
+      <div class="bo-head"><div class="bo-ico" style="background:${m.bg}">${m.ico}</div><div><div class="bo-htitle">${m.title}</div><div class="bo-htag">MODULE ${i+1} · ${m.tag} · +25 XP</div></div></div>
+      <div class="bo-body"><ul class="bo-steps">${m.steps.map((s,j)=>`<li class="bo-step"><span class="bo-n" style="background:${m.col}">${j+1}</span>${s}</li>`).join('')}</ul></div>
+      <button class="bo-cta" style="background:${m.bg};color:${m.col}" onclick="doBoost(${i})" ${done?'disabled':''}>
+        ${done?'✅ Module complété !':'✅ Module terminé — Gagner 25 XP'}
+      </button>
+    </div>`;
+  }).join('');
+}
+
+function renderRentree(){
+  document.getElementById('rentreeGrid').innerHTML=RENTREE.map((r,i)=>`
+    <div class="re-card" style="border-left-color:${r.col}">
+      <div class="re-num" style="color:${r.col}">0${i+1}</div>
+      <div class="re-title">${r.title}</div>
+      <div class="re-body"><ul>${r.items.map(it=>`<li>${it}</li>`).join('')}</ul></div>
+    </div>`).join('');
+}
+
+// ================================================================
+// QUIZ LOGIC
+// ================================================================
+let cQ=-1,qI=0,qSc=0,qAns=false;
+
+function startQuiz(i){
+  cQ=i;qI=0;qSc=0;qAns=false;
+  document.getElementById('quizListWrap').classList.add('hide');
+  document.getElementById('quizPanel').classList.add('show');
+  document.getElementById('qResult').classList.remove('show');
+  document.getElementById('qpTitle').textContent=QUIZZES[i].title;
+  document.getElementById('qpTag').innerHTML=`<span class="q-tag" style="background:${QUIZZES[i].tbg};color:${QUIZZES[i].color}">${QUIZZES[i].tag}</span>`;
+  pills();renderQ();
+}
+
+function pills(){
+  const tot=QUIZZES[cQ].qs.length;
+  document.getElementById('qPills').innerHTML=Array.from({length:tot},(_,i)=>`<div class="q-pill ${i<qI?'done':i===qI?'curr':''}"></div>`).join('');
+}
+
+function renderQ(){
+  qAns=false;
+  const q=QUIZZES[cQ].qs[qI];const L=['A','B','C','D'];
+  document.getElementById('qContainer').innerHTML=`
+    <div class="q-card">
+      <div class="q-num">Question ${qI+1} / ${QUIZZES[cQ].qs.length}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="answers">${q.a.map((a,i)=>`<button class="ans-btn" id="ab${i}" onclick="pickAns(${i})"><span class="ans-let">${L[i]}</span>${a}</button>`).join('')}</div>
+      <div class="q-expl" id="qExpl"></div>
+    </div>
+    <button class="next-q-btn" id="nqBtn" onclick="nextQ()">
+      ${qI<QUIZZES[cQ].qs.length-1?'Question suivante →':'Voir mes résultats 🎉'}
+    </button>`;
+}
+
+function pickAns(i){
+  if(qAns)return;qAns=true;
+  const q=QUIZZES[cQ].qs[qI];
+  document.querySelectorAll('.ans-btn').forEach(b=>b.disabled=true);
+  document.getElementById('ab'+i).classList.add(i===q.c?'correct':'wrong');
+  if(i!==q.c)document.getElementById('ab'+q.c).classList.add('correct');
+  const ex=document.getElementById('qExpl');
+  ex.innerHTML=`<strong>${i===q.c?'✅ Bravo !':'❌ Pas tout à fait…'}</strong><br>${q.e}`;
+  ex.classList.add('show');
+  if(i===q.c)qSc++;
+  document.getElementById('nqBtn').classList.add('show');
+}
+
+function nextQ(){qI++;if(qI>=QUIZZES[cQ].qs.length){showQRes();return;}pills();renderQ();}
+
+function showQRes(){
+  document.getElementById('qContainer').innerHTML='';
+  const tot=QUIZZES[cQ].qs.length;const pct=Math.round(qSc/tot*100);
+  let em,ti,ms;
+  if(pct>=90){em='🏆';ti='Expert !';ms='Maîtrise parfaite. Tu es une vraie experte du massage !';}
+  else if(pct>=70){em='🎯';ti='Très bien !';ms='Quelques petits points à consolider, mais tu es sur la bonne voie !';}
+  else if(pct>=50){em='💪';ti='Pas mal !';ms='Continue à réviser ces notions, tu vas progresser rapidement.';}
+  else{em='📖';ti='À réviser !';ms='Ce sujet mérite une bonne révision. Relis tes notes et relance le quiz !';}
+  document.getElementById('rEmoji').textContent=em;
+  document.getElementById('rTitle').textContent=ti;
+  document.getElementById('rScore').textContent=`${qSc}/${tot}`;
+  document.getElementById('rMsg').textContent=ms;
+  document.getElementById('qResult').classList.add('show');
+  if(!S.quizDone.includes(cQ)){S.quizDone.push(cQ);addXP(30);toast('🧠 Quiz terminé ! +30 XP','xp');confetti();checkBadges();updateAll();saveState();}
+}
+
+function retryQuiz(){document.getElementById('qResult').classList.remove('show');startQuiz(cQ);}
+function backToQuizList(){
+  document.getElementById('quizListWrap').classList.remove('hide');
+  document.getElementById('quizPanel').classList.remove('show');
+  document.getElementById('qResult').classList.remove('show');
+  renderQuizCards();
+}
+
+// ================================================================
+// VF LOGIC
+// ================================================================
+let vfI=0,vfSc=0,vfA=false;
+
+function initVF(){vfI=0;vfSc=0;vfA=false;document.getElementById('vfTot').textContent=VF.length;setVF();}
+function setVF(){
+  document.getElementById('vfNum').textContent=vfI+1;
+  document.getElementById('vfStmt').textContent=VF[vfI].s;
+  document.getElementById('vfRes').className='vf-res';
+  document.querySelector('.vf-v').disabled=false;document.querySelector('.vf-v').classList.remove('sel');
+  document.querySelector('.vf-f').disabled=false;document.querySelector('.vf-f').classList.remove('sel');
+  document.getElementById('vfNextBtn').style.display='none';
+}
+function ansVF(u){
+  if(vfA)return;vfA=true;
+  const cur=VF[vfI];const ok=u===cur.a;if(ok)vfSc++;
+  if(u)document.querySelector('.vf-v').classList.add('sel');else document.querySelector('.vf-f').classList.add('sel');
+  document.querySelector('.vf-v').disabled=true;document.querySelector('.vf-f').disabled=true;
+  const r=document.getElementById('vfRes');r.innerHTML=cur.e;r.className=`vf-res show ${ok?'vf-ok':'vf-ko'}`;
+  document.getElementById('vfNextBtn').style.display='inline-flex';
+}
+function nextVF(){
+  vfA=false;vfI++;
+  if(vfI>=VF.length){
+    document.getElementById('vfCard').style.display='none';
+    document.getElementById('vfNextBtn').style.display='none';
+    document.getElementById('vfFinal').style.display='block';
+    document.getElementById('vfFinalScore').textContent=`${vfSc}/${VF.length}`;
+    const p=Math.round(vfSc/VF.length*100);
+    document.getElementById('vfFinalMsg').textContent=p>=75?'🎉 Tu démythifies le massage comme un pro !':p>=50?'👍 Quelques idées reçues t\'ont eu.e !':'📚 Le massage regorge de surprises — reviens tester !';
+    if(!S.vfDone){S.vfDone=true;addXP(20);toast('🎮 Vrai/Faux terminé ! +20 XP','xp');checkBadges();updateAll();saveState();}
+    return;
+  }
+  setVF();
+}
+function resetVF(){document.getElementById('vfCard').style.display='block';document.getElementById('vfFinal').style.display='none';initVF();}
+
+// ================================================================
+// CHECKLIST
+// ================================================================
+function toggleCheck(id){
+  const was=S.checklist[id]||false;S.checklist[id]=!was;
+  document.getElementById('ci-'+id).classList.toggle('checked');
+  if(!was){addXP(5);toast('✅ Action cochée ! +5 XP','ok');}
+  updateCheckCounts();checkBadges();updateAll();saveState();
+}
+function updateCheckCounts(){
+  const jc=CHECKS.juil.filter(c=>S.checklist[c.id]).length;
+  const ac=CHECKS.aout.filter(c=>S.checklist[c.id]).length;
+  document.getElementById('juilCount').textContent=jc;
+  document.getElementById('aoutCount').textContent=ac;
+  document.getElementById('juilBar').style.width=(jc/10*100)+'%';
+  document.getElementById('aoutBar').style.width=(ac/10*100)+'%';
+}
+
+// ================================================================
+// BOOST
+// ================================================================
+function doBoost(i){
+  if(S.boostDone.includes(i)){toast('✅ Déjà complété !','');return;}
+  S.boostDone.push(i);addXP(25);toast('🚀 Module terminé ! +25 XP','xp');confetti();
+  checkBadges();updateAll();saveState();renderBoost();
+}
+
+// ================================================================
+// DÉFIS
+// ================================================================
+function doDefi(id){
+  if(S.defisDone.includes(id)){toast('⚡ Déjà relevé !','');return;}
+  S.defisDone.push(id);addXP(20);toast('⚡ Défi relevé ! +20 XP 🎉','xp');confetti();
+  checkBadges();updateAll();saveState();renderGameCards();
+}
+
+// ================================================================
+// PAUSE
+// ================================================================
+function openPause(i){
+  const p=PAUSES[i];
+  document.getElementById('pauseContent').innerHTML=`
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+      <span style="font-size:2.2rem">${p.ico}</span>
+      <div><div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--burgundy)">${p.title}</div>
+      <div style="font-size:0.75rem;color:var(--mid)">⏱ ${p.dur} · Auto-massage guidé</div></div>
+    </div>
+    <div style="display:grid;gap:10px">
+      ${p.steps.map((s,j)=>`<div class="pa-step"><span class="pa-step-ico">${s.e}</span><div><div class="pa-step-num">Étape ${j+1}</div>${s.t}</div></div>`).join('')}
+    </div>
+    <button class="sub-btn" style="margin-top:18px" onclick="completePause(${i})">✅ Séance terminée ! +15 XP</button>`;
+  document.getElementById('modalPause').classList.add('open');
+}
+function completePause(i){
+  if(!S.pauseDone.includes(i)){S.pauseDone.push(i);addXP(15);toast('🙌 Séance faite ! +15 XP 💚','ok');confetti();checkBadges();updateAll();saveState();renderPauseCards();}
+  document.getElementById('modalPause').classList.remove('open');
+}
+
+// ================================================================
+// WORKSHEET
+// ================================================================
+function saveWS(){['ws1','ws2','ws3','ws4','ws5'].forEach(id=>{const el=document.getElementById(id);if(el)S.worksheet[id]=el.value;});saveState();}
+function saveWSFull(){saveWS();checkBadges();updateAll();toast('💾 Plan de rentrée sauvegardé ! ✨','ok');}
+function loadWS(){['ws1','ws2','ws3','ws4','ws5'].forEach(id=>{const el=document.getElementById(id);if(el&&S.worksheet[id])el.value=S.worksheet[id];});}
+
+// ================================================================
+// XP + PROGRESS
+// ================================================================
+function addXP(n){S.xp+=n;document.getElementById('xpBadge').textContent=S.xp;document.getElementById('stXP').textContent=S.xp;}
+function totalAct(){return S.quizDone.length+S.pauseDone.length+S.defisDone.length+Object.values(S.checklist).filter(Boolean).length+S.boostDone.length+(S.vfDone?1:0);}
+
+function updateAll(){
+  const chk=Object.values(S.checklist).filter(Boolean).length;
+  const tot=totalAct();const MAX=40;const pct=Math.min(100,Math.round(tot/MAX*100));
+  document.getElementById('progFill').style.width=pct+'%';
+  document.getElementById('progPct').textContent=pct+'%';
+  document.getElementById('progLbl').textContent=`${tot} / ${MAX} activités`;
+  document.getElementById('ccQuiz').style.width=(S.quizDone.length/5*100)+'%';
+  document.getElementById('ccPause').style.width=(S.pauseDone.length/6*100)+'%';
+  document.getElementById('ccJeux').style.width=(S.defisDone.length/8*100)+'%';
+  document.getElementById('ccCheck').style.width=(chk/20*100)+'%';
+  document.getElementById('ccBoost').style.width=(S.boostDone.length/5*100)+'%';
+  document.getElementById('cmQuiz').textContent=S.quizDone.length;
+  document.getElementById('cmPause').textContent=S.pauseDone.length;
+  document.getElementById('cmJeux').textContent=S.defisDone.length;
+  document.getElementById('cmCheck').textContent=chk;
+  document.getElementById('cmBoost').textContent=S.boostDone.length;
+  document.getElementById('stXP').textContent=S.xp;
+  document.getElementById('stBadges').textContent=S.badgesUnlocked.length;
+  document.getElementById('stTotal').textContent=tot;
+  document.getElementById('xpBadge').textContent=S.xp;
+  // Thermometer
+  document.getElementById('thNum').textContent=pct+'%';
+  document.getElementById('thFill').style.width=pct+'%';
+  let tt,td;
+  if(pct===0){tt='🌱 Tu démarres la colo !';td='Commence par explorer les catégories. Chaque activité te rapproche d\'une rentrée au top !';}
+  else if(pct<25){tt='🌤️ C\'est parti !';td='Belle énergie ! Continue à cocher des activités, tu montes en puissance.';}
+  else if(pct<50){tt='☀️ Tu prends de la vitesse !';td='Excellent travail. Tu es dans la bonne dynamique pour une rentrée réussie.';}
+  else if(pct<75){tt='🌟 Plus que la moitié !';td='Impressionnant ! Tu es une praticienne investie. La rentrée se prépare vraiment bien.';}
+  else if(pct<100){tt='🚀 La ligne d\'arrivée approche !';td='Tu es presque là ! Finis le cahier pour décrocher le badge "Summer Boss" !';}
+  else{tt='🏆 Cahier 100% complété !';td='Tu as terminé toute la colo ! Tu es prête pour une rentrée exceptionnelle. Fanny est fière de toi !';}
+  document.getElementById('thTitle').textContent=tt;
+  document.getElementById('thDesc').textContent=td;
+}
+
+// ================================================================
+// BADGES
+// ================================================================
+function checkBadges(){
+  BADGES.forEach(b=>{
+    if(!S.badgesUnlocked.includes(b.id)&&b.chk()){
+      S.badgesUnlocked.push(b.id);
+      const el=document.getElementById('bdg-'+b.id);
+      if(el){el.classList.remove('locked');el.classList.add('unlocked');}
+      setTimeout(()=>toast(`🏅 Badge débloqué : "${b.name}" !`,'win'),800);
+      confetti();document.getElementById('stBadges').textContent=S.badgesUnlocked.length;
+      saveState();
+    }
+  });
+}
+
+// ================================================================
+// NAVIGATION
+// ================================================================
+function goSec(name){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('sec-'+name).classList.add('active');
+  document.querySelector(`[data-sec="${name}"]`).classList.add('active');
+  window.scrollTo(0,0);
+  if(name==='rentree')loadWS();
+}
+
+// ================================================================
+// TOAST + CONFETTI
+// ================================================================
+function toast(msg,type){
+  const w=document.getElementById('toastWrap');const t=document.createElement('div');
+  t.className=`toast ${type}`;t.innerHTML=msg;w.appendChild(t);
+  setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(110%)';t.style.transition='all 0.3s';setTimeout(()=>t.remove(),300);},3200);
+}
+
+function confetti(){
+  const C=['#C4633A','#D4A853','#3A9E94','#9B72AA','#6B8F71','#E8714A','#F0C040'];
+  for(let i=0;i<28;i++){
+    const p=document.createElement('div');p.className='confetti-p';
+    p.style.left=Math.random()*100+'vw';p.style.top='-20px';
+    p.style.background=C[Math.floor(Math.random()*C.length)];
+    p.style.animationDelay=Math.random()*0.6+'s';
+    p.style.width=(Math.random()*8+5)+'px';p.style.height=(Math.random()*8+5)+'px';
+    p.style.borderRadius=Math.random()>0.5?'50%':'3px';
+    document.body.appendChild(p);setTimeout(()=>p.remove(),3200);
+  }
+}
+
+// ================================================================
+// INIT — Auto reconnect
+// ================================================================
+window.addEventListener('DOMContentLoaded',()=>{
+  initVF();
+  try{
+    const last=localStorage.getItem('apam_lastuser');
+    if(last){
+      const u=getUsers();
+      if(u[last]){
+        loadUserState(last);
+        S.user={prenom:u[last].prenom,nom:u[last].nom,email:last,spe:u[last].spe};
+        launchApp();return;
+      }
+    }
+  }catch(e){}
+});
+</script>
+</body>
+</html>
