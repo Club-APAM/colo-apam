@@ -949,11 +949,14 @@ function doRegister(){
   S.user={prenom:p,nom:n,email:e,spe:sp};
   saveState(); closeAuth(); launchApp();
   toast(`🎉 Bienvenue ${p} dans la Colo du Club APAM !`,'win');
-  fetch('https://mkigsjopmyhvpcfakpbp.supabase.co/functions/v1/send-to-brevo', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ prenom:p, nom:n, email:e, spe:sp })
-  }).catch(err => console.warn('Brevo webhook error:', err));
+ fetch('https://mkigsjopmyhvpcfakpbp.supabase.co/functions/v1/send-to-brevo', {
+  method: 'POST',
+  headers: { 
+    'Content-Type': 'application/json',
+    'apikey': 'sb_publishable_l3fbL8o7uv-NcGlCukKc6Q_yUIfliwH'
+  },
+  body: JSON.stringify({ prenom:p, nom:n, email:e, spe:sp })
+}).catch(err => console.warn('Brevo webhook error:', err));
 }
 
 function doLogin(){
