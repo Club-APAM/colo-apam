@@ -950,13 +950,11 @@ function doRegister(){
   S.user={prenom:p,nom:n,email:e,spe:sp};
   saveState(); closeAuth(); launchApp();
   toast(`🎉 Bienvenue ${p} dans la Colo du Club APAM !`,'win');
-  // TODO: fetch('https://mkigsjopmyhvpcfakpbp.supabase.co/functions/v1/send-to-brevo', {
+  fetch('https://mkigsjopmyhvpcfakpbp.supabase.co/functions/v1/send-to-brevo', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ prenom, nom, email, spe })
-});({prenom:p,nom:n,email:e,spe:sp});
-}
-
+  body: JSON.stringify({ prenom:p, nom:n, email:e, spe:sp })
+});
 function doLogin(){
   const e=document.getElementById('lEmail').value.trim().toLowerCase();
   const pw=document.getElementById('lPwd').value;
