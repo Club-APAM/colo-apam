@@ -741,8 +741,8 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 // ================================================================
 // SUPABASE CONFIG — replace when deploying
 // ================================================================
-// const SUPABASE_URL = 'https://mkigsjopmyhvpcfakpbp.supabase.co/rest/v1/';
-// const SUPABASE_ANON_KEY = 'sb_publishable_l3fbL8o7uv-NcGlCukKc6Q_yUIfliwH
+// const SUPABASE_URL = 'https://YOUR-PROJECT.supabase.co';
+// const SUPABASE_ANON_KEY = 'your-anon-public-key';
 // BREVO WEBHOOK: create a Supabase Edge Function triggered on auth.users INSERT
 // that calls POST https://api.brevo.com/v3/contacts with { email, attributes:{PRENOM,SPECIALITE}, listIds:[YOUR_LIST_ID] }
 
@@ -950,10 +950,12 @@ function doRegister(){
   saveState(); closeAuth(); launchApp();
   toast(`🎉 Bienvenue ${p} dans la Colo du Club APAM !`,'win');
   fetch('https://mkigsjopmyhvpcfakpbp.supabase.co/functions/v1/send-to-brevo', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ prenom:p, nom:n, email:e, spe:sp })
-});
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ prenom:p, nom:n, email:e, spe:sp })
+  }).catch(err => console.warn('Brevo webhook error:', err));
+}
+
 function doLogin(){
   const e=document.getElementById('lEmail').value.trim().toLowerCase();
   const pw=document.getElementById('lPwd').value;
